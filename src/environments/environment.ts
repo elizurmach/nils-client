@@ -3,7 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  resources: {
+    home: 'Home',
+    expand: 'Expand',
+    userIcon: 'User',
+    hello: 'Hello',
+    userDetails: 'User Details...',
+    patientAccessioning: 'Patient accessioning',
+    samples: 'Samples',
+    audit: 'Audit',
+    sampleStatus: 'Sample status',
+    labDirectorReport: 'Lab director report',
+    companyLogo: "Copyright &copy 2018' Nucleix Ltd. All rights reserved",
+    uploadSamplePhoto: "Upload photo of sample"
+  }
 };
 
 /*

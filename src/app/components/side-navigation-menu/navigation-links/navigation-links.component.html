@@ -1,0 +1,8 @@
+<div class="navigation-links">
+  <nav class="nav-bar">
+    <a class="nav-link" *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive">
+      <img *ngIf="link.imgPath" class="icon icon-dark" src="{{link.imgPath}}" />
+      <span class="nav-link-text">{{link.label}}</span>
+    </a>
+  </nav>
+</div>

@@ -1,0 +1,149 @@
+.side-nav-menu {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #686868;
+  box-shadow: 7px 0px 10px #00000029;
+  font-size: 20px;
+  width: 350px;
+  color: #fff;
+}
+
+  .side-nav-menu.compressed {
+    width: 80px;
+  }
+
+  .side-nav-menu .expand-button {
+    position: absolute;
+    top: 110px;
+    right: -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+    .side-nav-menu .expand-button .button-img {
+      height: 100%;
+      width: 100%;
+    }
+
+  .side-nav-menu.compressed .expand-button .button-img {
+    transform: rotate(180deg);
+  }
+
+  .side-nav-menu .title {
+    display: flex;
+    flex-direction: row;
+    background: #333333;
+    height: 80px;
+  }
+
+    .side-nav-menu .title a {
+      text-decoration: none;
+      color: inherit;
+      height: 60px;
+      width: 100%;
+      margin: 10px 20px;
+    }
+
+  .side-nav-menu.compressed .title a {
+    margin: 10px;
+  }
+
+  .side-nav-menu .title .app-logo-img {
+    height: 60px;
+    width: 60px;
+    float: left;
+  }
+
+  .side-nav-menu .title .app-title {
+    float: right;
+    text-decoration: none;
+    margin: 0;
+    line-height: 60px;
+    font-size: 18px;
+  }
+
+  .side-nav-menu.compressed .title .app-title {
+    display: none;
+  }
+
+  .side-nav-menu .user {
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    background: #575252;
+  }
+
+    .side-nav-menu .user a {
+      text-decoration: none;
+      color: inherit;
+      height: 60px;
+      width: 100%;
+      margin: 30px 20px;
+    }
+
+  .side-nav-menu.compressed .user a {
+    margin: 30px 15px;
+  }
+
+  .side-nav-menu .user .user-icon {
+    float: left;
+    height: 50px;
+    width: 50px;
+  }
+
+  .side-nav-menu .user .user-details {
+    float: left;
+    height: 60px;
+    margin: 0 20px;
+  }
+
+  .side-nav-menu.compressed .user .user-details {
+    display: none;
+  }
+
+  .side-nav-menu .user .user-details > span {
+    line-height: 30px;
+  }
+
+  .side-nav-menu .user .user-details .greeting {
+    color: #04b7b3;
+  }
+
+  .side-nav-menu .user .user-details .last-login {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .side-nav-menu.compressed ::ng-deep .nav-bar .nav-link .nav-link-text {
+    display: none;
+  }
+
+  .side-nav-menu .company-logo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .side-nav-menu .company-logo-img {
+    height: 30px;
+  }
+
+  .side-nav-menu .company-logo-text {
+    font-size: 10px;
+    line-height: 30px
+  }
+
+  .side-nav-menu.compressed .company-logo{
+      display: none;
+  }

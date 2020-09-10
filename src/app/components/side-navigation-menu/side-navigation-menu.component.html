@@ -1,0 +1,27 @@
+<div class="side-nav-menu">
+  <button matButton class="expand-button" (click)="tougleExpand()">
+    <img class="button-img" alt={{resources.expand}} src="../assets/images/icons/expand_horizontal.svg" />
+  </button>
+  <div class="title">
+    <a routerLink="" class="home-link" title={{resources.home}}>
+      <img class="app-logo-img" alt="NILS Logo" src="../assets/images/icons/nils_logo.svg" />
+      <span class="app-title"><b>N</b>ucleix<b>I</b>ntigrated<b>L</b>ab<b>S</b>ystem</span>
+    </a>
+  </div>
+  <div class="user">
+    <a routerLink="user" class="home-link" title={{resources.userDetails}}>
+      <img class="user-icon" alt="{{resources.userIcon}}" src="../assets/images/icons/user.svg" />
+      <div class="user-details">
+        <span class="greeting">{{resources.hello}} {{userName}}</span><br />
+        <span class="last-login">{{lastLogin | dateFormat}}</span>
+      </div>
+    </a>
+  </div>
+  <div class="navigation">
+    <app-navigation-links [navLinks]="navLinks"></app-navigation-links>
+  </div>
+  <div class="company-logo">
+    <img class="company-logo-img" alt="Nucleix Logo" src="../assets/images/icons/nucleix_logo.svg" />
+    <span class="company-logo-text">{{resources.companyLogo}}</span>
+  </div>
+</div>

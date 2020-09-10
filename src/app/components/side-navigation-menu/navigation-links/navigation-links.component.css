@@ -1,0 +1,25 @@
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+  .nav-bar .nav-link {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    text-align: left;
+    color: inherit;
+    font-weight: 300;
+    padding: 0.6em 0;
+  }
+
+    .nav-bar .nav-link:hover {
+      font-weight: 400;
+      background: #6c8f90;
+    }
+
+    .nav-bar .nav-link .icon {
+      height: 1em;
+      width: 1.5em;
+      margin: auto 0.8em;
+    }

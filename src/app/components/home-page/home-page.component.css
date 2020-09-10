@@ -1,0 +1,11 @@
+.home-page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.home-background-image {
+  min-height: 100%;
+  max-width: 100%;
+}

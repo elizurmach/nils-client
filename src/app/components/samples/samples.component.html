@@ -1,0 +1,21 @@
+<div class="samples">
+  <div class="title">{{title}}</div>
+  <div class="content">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="sample-form">
+      <div class="field">
+        <button type="button" button mat-raised-button class="nils-button" (click)="hiddensamplephotoinput.click()">
+          <span class="button-text">{{resources.uploadSamplePhoto}}</span>
+          <span class="button-img"><mat-icon>add_photo_alternate</mat-icon></span>
+        </button>
+        <input style="display: none" type="file" (change)="onUploadSamplePhoto($event)" #hiddensamplephotoinput>
+      </div>
+      <div class="field">
+        <button type="button" button mat-raised-button class="nils-button" (click)="hiddenrequisitionforminput.click()">
+          <span class="button-text">{{resources.uploadSamplePhoto}}</span>
+          <span class="button-img"><mat-icon>add_photo_alternate</mat-icon></span>
+        </button>
+        <input style="display: none" type="file" (change)="onUploadRequisitionForm($event)" #hiddenrequisitionforminput>
+      </div>
+    </form>
+  </div>
+</div>
