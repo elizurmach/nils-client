@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  icons: ["../assets/images/icons/upload_form.svg",],
   resources: {
     home: 'Home',
     expand: 'Expand',
@@ -16,7 +17,10 @@ export const environment = {
     sampleStatus: 'Sample status',
     labDirectorReport: 'Lab director report',
     companyLogo: "Copyright &copy 2018' Nucleix Ltd. All rights reserved",
-    uploadSamplePhoto: "Upload photo of sample"
+    uploadSamplePhoto: "Upload Photo of Sample",
+    uploadRequisitionForm: 'Upload Requisition Form',
+    addTest: 'Add test',
+    generalInfo:'General Info'
   }
 };
 

@@ -17,12 +17,13 @@ button:focus {
   outline: 0;
 }
 
-.nils-button {
+.nils-button,
+.mat-button-base.nils-button {
+  font-size: inherit;
   height: 3em;
   min-width: 20em;
   border-radius: 1.5em;
-  font-size: 16px;
-  font-weight: 500;
+  font-weight: 300;
   border: none;
   background: inherit;
   color: inherit;
@@ -30,14 +31,6 @@ button:focus {
   -moz-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
 }
-
-  .nils-button:not(.disabled):hover {
-    font-weight: 600;
-  }
-
-  .nils-button:not(.disabled):active {
-    font-weight: 400;
-  }
 
   .nils-button.disabled {
     opacity: 0.5;
@@ -47,6 +40,18 @@ button:focus {
     line-height: 3em;
   }
 
+  .nils-button:not(.disabled):hover .button-text {
+    font-weight: 400;
+  }
+
+  .nils-button:not(.disabled):active .button-text {
+    font-weight: 100;
+  }
+
   .nils-button .button-img {
+    height: 1.2em;
     margin: 0 0.1em;
   }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -5,10 +5,11 @@
 }
 
 .title {
-    height: 80px;
+  height: 80px;
 }
 
 .content {
+  font-size: 16px;
   height: calc(100% - 190px);
   width: calc(100% - 50px);
   margin: 0 30px 30px 20px;
@@ -18,7 +19,24 @@
   box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
 }
 
+.field-set {
+    width: 100%;
+}
+
+.field-set-caption {
+  height: 40px;
+  padding: 20px;
+  font-size: 20px;
+  color: #3fcce2;
+  font-weight: 600;
+}
+
 .field {
   display: inline-block;
-  margin: 10px 30px;
+  padding: 10px 1.66%;
+  width: 30%;
 }
+
+  .field.patientId ::ng-deep .mat-form-field-flex{
+      height: 4em;
+  }

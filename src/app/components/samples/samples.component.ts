@@ -15,18 +15,27 @@ export class SamplesComponent implements OnInit {
   private samplePhotoData: any;
   private requisitionFormData: any;
   private sample: any = '';
+  public testOptions = ['Blader EPI check', 'Lung EPI check'];
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.createForm();
     this.setChangeValidate();
+    this.sample = {
+      patientId: '1234567890',
+      samplePhoto: '',
+      reqisutionForm: '',
+      test: ''
+    }
   }
 
   createForm() {
     this.formGroup = this.formBuilder.group({
+      'patientId': [null, Validators.required],
       'samplePhoto': [null, Validators.required],
-      'name': [null, Validators.required],
+      'reqisutionForm': [null, Validators.required],
+      'test': [null, Validators.required],
       'description': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       'validate': ''
     });

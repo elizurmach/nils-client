@@ -5,10 +5,10 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\samples",
-    "\\src\\app\\components\\side-navigation-menu",
-    "\\src\\app\\components\\side-navigation-menu\\navigation-links",
     "\\src\\app\\pipes",
     "\\src\\assets",
+    "\\src\\assets\\images",
+    "\\src\\assets\\images\\icons",
     "\\src\\environments"
   ],
   "SelectedNode": "\\src\\app\\components\\samples\\samples.component.ts",

@@ -2,20 +2,37 @@
   <div class="title">{{title}}</div>
   <div class="content">
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="sample-form">
-      <div class="field">
-        <button type="button" button mat-raised-button class="nils-button" (click)="hiddensamplephotoinput.click()">
-          <span class="button-text">{{resources.uploadSamplePhoto}}</span>
-          <span class="button-img"><mat-icon>add_photo_alternate</mat-icon></span>
-        </button>
-        <input style="display: none" type="file" (change)="onUploadSamplePhoto($event)" #hiddensamplephotoinput>
+      <div class="field-set">
+        <div class="field-set-caption">{{resources.generalInfo}}</div>
+        <mat-form-field [formGroup]="formGroup" class="field patientId">
+          <input matInput formControlName="patientId" placeholder="{{resources.patientId}}" type="text"
+                 [(ngModel)]="sample.patientId" readonly="readonly">
+        </mat-form-field>
+        <mat-form-field [formGroup]="formGroup" class="field samplePhoto">
+          <input matInput formControlName="samplePhoto" [(ngModel)]="sample.samplePhoto" style="display: none" />
+          <input style="display: none" type="file" (change)="onUploadSamplePhoto($event)" #hiddensamplephotoinput>
+          <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddensamplephotoinput.click()">
+            <span class="button-text">{{resources.uploadSamplePhoto}}</span>
+            <img class="button-img" src="../assets/images/icons/upload_image.png" />
+          </button>
+        </mat-form-field>
+        <mat-form-field [formGroup]="formGroup" class="field requisitionForm">
+          <!--<input matInput formControlName="reqisutionForm" [(ngModel)]="sample.reqisutionForm" style="display: none" />
+          <input style="display: none" type="file" (change)="onUploadRequisitionForm($event)" #hiddenrequisitionforminput>-->
+          <!--<button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddenrequisitionforminput.click()">
+            <span class="button-text">{{resources.uploadRequisitionForm}}</span>
+            <img class="button-img" src="../assets/images/icons/upload_file.png" />
+          </button>-->
+          <ngx-mat-file-input formControlName="reqisutionForm" [(ngModel)]="sample.reqisutionForm" [placeholder]="resources.uploadRequisitionForm" multiple></ngx-mat-file-input>
+          <mat-icon matSuffix svgIcon="upload_form"></mat-icon>
+        </mat-form-field>
+        <mat-form-field [formGroup]="formGroup" class="field test">
+          <mat-select [placeholder]="'select'" formControlName="test" [(ngModel)]="sample.test" >
+            <mat-option *ngFor="let item of testOptions" [value]="item">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-      <div class="field">
-        <button type="button" button mat-raised-button class="nils-button" (click)="hiddenrequisitionforminput.click()">
-          <span class="button-text">{{resources.uploadSamplePhoto}}</span>
-          <span class="button-img"><mat-icon>add_photo_alternate</mat-icon></span>
-        </button>
-        <input style="display: none" type="file" (change)="onUploadRequisitionForm($event)" #hiddenrequisitionforminput>
-      </div>
+
     </form>
   </div>
 </div>

@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule, MatButtonModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSelectModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { DateFormatPipe } from './pipes/date-format-pipe.pipe';
 
@@ -28,7 +30,19 @@ import { SamplesComponent } from './components/samples/samples.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    HttpClientModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatTabsModule,
+    MatDialogModule,
+    MaterialFileInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
