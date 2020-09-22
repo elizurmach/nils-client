@@ -15,6 +15,7 @@ export class SamplesComponent implements OnInit {
   private samplePhotoData: any;
   private requisitionFormData: any;
   private sample: any = '';
+  public tubeValidation: Array<string>;
   public testOptions = ['Blader EPI check', 'Lung EPI check'];
 
   constructor(private formBuilder: FormBuilder) { }
@@ -24,10 +25,15 @@ export class SamplesComponent implements OnInit {
     this.setChangeValidate();
     this.sample = {
       patientId: '1234567890',
-      samplePhoto: '',
-      reqisutionForm: '',
-      test: ''
+      samplePhoto: undefined,
+      reqisutionForm: undefined,
+      test: undefined,
+      dueDate: new Date(),
+      expectedTubeCount: 1,
+      actualTubeCount: undefined,
+      isPackageIntact: undefined,
     }
+    this.tubeValidation = ['color', 'volume', 'consistensy']
   }
 
   createForm() {
@@ -36,7 +42,11 @@ export class SamplesComponent implements OnInit {
       'samplePhoto': [null, Validators.required],
       'reqisutionForm': [null, Validators.required],
       'test': [null, Validators.required],
-      'description': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      'dueDate': [null],
+      'tubeExpectedCount': [null],
+      'tubeActualCount': [null],
+      'isPackageIntact': [null, Validators.required],
+      'tube': [null],
       'validate': ''
     });
   }
@@ -66,6 +76,10 @@ export class SamplesComponent implements OnInit {
   }
 
   onSubmit(value) {
-    this.sample = value;
+    console.log(this.sample);
+  }
+
+  selectionChange(option) {
+
   }
 }

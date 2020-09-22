@@ -9,7 +9,7 @@
 }
 
 .content {
-  font-size: 16px;
+  font-size: 14px;
   height: calc(100% - 190px);
   width: calc(100% - 50px);
   margin: 0 30px 30px 20px;
@@ -20,13 +20,12 @@
 }
 
 .field-set {
-    width: 100%;
+  width: 70%;
 }
 
 .field-set-caption {
-  height: 40px;
-  padding: 20px;
-  font-size: 20px;
+  padding: 20px 20px 0 20px;
+  font-size: 16px;
   color: #3fcce2;
   font-weight: 600;
 }
@@ -37,6 +36,12 @@
   width: 30%;
 }
 
-  .field.patientId ::ng-deep .mat-form-field-flex{
-      height: 4em;
+  .field.patientId ::ng-deep .mat-form-field-flex {
+    height: 4em;
   }
+
+.submit {
+  position: absolute;
+  bottom: 3em;
+  right: 3em;
+}

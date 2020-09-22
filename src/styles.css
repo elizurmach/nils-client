@@ -21,7 +21,7 @@ button:focus {
 .mat-button-base.nils-button {
   font-size: inherit;
   height: 3em;
-  min-width: 20em;
+  min-width: 15em;
   border-radius: 1.5em;
   font-weight: 300;
   border: none;
@@ -53,5 +53,7 @@ button:focus {
     margin: 0 0.1em;
   }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field .nils-button,
+.mat-form-field .mat-button-base.nils-button{
+    width: 100%;
+}

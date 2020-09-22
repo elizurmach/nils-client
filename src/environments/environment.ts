@@ -20,7 +20,14 @@ export const environment = {
     uploadSamplePhoto: "Upload Photo of Sample",
     uploadRequisitionForm: 'Upload Requisition Form',
     addTest: 'Add test',
-    generalInfo:'General Info'
+    generalInfo: 'General Info',
+    addDueDate: 'Add due date',
+    tubeInfo: 'Tube Info',
+    tubeExpectedCount: 'Tube expected count',
+    tubeActualCount: 'Tube actual count',
+    isPackageIntact: 'Is pacage intact',
+    contentInfo: 'Content Info',
+    submit: 'Submit'
   }
 };
 
