@@ -1,0 +1,8 @@
+<div class="field-set">
+  <div *ngIf="field.title" class="field-set-caption">
+    <mat-icon *ngIf="field.icon" class="icon" svgIcon="{{field.icon}}"></mat-icon>
+    {{field.title}}
+  </div>
+  <ng-container *ngFor="let fld of field.fields;" dynamicField [field]="fld" [group]="form">
+  </ng-container>
+</div>

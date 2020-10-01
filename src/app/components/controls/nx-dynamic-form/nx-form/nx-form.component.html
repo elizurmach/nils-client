@@ -7,12 +7,11 @@
     </button>
   </div>
   <div *ngIf="showFields" calss="field-set" style="padding: 30px">
-    <dynamic-field-set
+    <nx-form-content
       [fields]="formConfig.fields"
       (submit)="onSubmitClick($event)"
-      (cancel)="onCancelClick()"
-      >
+      (cancel)="onCancelClick()">
       <ng-content></ng-content>
-    </dynamic-field-set>
+    </nx-form-content>
   </div>
 </div>

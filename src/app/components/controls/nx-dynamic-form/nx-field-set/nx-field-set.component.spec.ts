@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicFormComponent } from './dynamic-field-set.component';
+import { NxFieldSetComponent } from './nx-field-set.component';
 
-describe('DynamicFormComponent', () => {
-  let component: DynamicFormComponent;
-  let fixture: ComponentFixture<DynamicFormComponent>;
+describe('NxFieldSetComponent', () => {
+  let component: NxFieldSetComponent;
+  let fixture: ComponentFixture<NxFieldSetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicFormComponent ]
+      declarations: [ NxFieldSetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DynamicFormComponent);
+    fixture = TestBed.createComponent(NxFieldSetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

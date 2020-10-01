@@ -23,11 +23,11 @@ export class AutocompleteComponent implements OnInit {
     this.filteredOptions = this.control.valueChanges.pipe(
       startWith(),
       map(value => value && typeof value === 'object' ? value.toString() : value),
-      map((value) => value ? this.filter(value) : this.field.options.slice()));
+      map((value) => value ? this.filter(value) : (this.field.options as string[]).slice()));
   }
 
   filter(name: string): string[] {
-    return this.field.options.filter(option =>
+    return (this.field.options as string[]).filter(option =>
       option.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 }

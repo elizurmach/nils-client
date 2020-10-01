@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-import { FormConfig, FieldConfig, ValidatorConfig } from '../Infra/form.interfaces';
-import { environment } from 'src/environments/environment';
-import { resources as formResources } from "src/assets/Resources/form-resource"
+import { FieldSetConfig, FieldConfig, ValidatorConfig } from '../Infra/form.interfaces';
+import { resources as formResources } from 'src/assets/resources/form-resources'
 import { Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
 
@@ -19,8 +18,7 @@ export class NxFormComponent implements OnInit, OnChanges {
   @Output() onSubmit = new EventEmitter();
   @Output() onCancel = new EventEmitter();
   @Output() onButton = new EventEmitter<any>();
-  formConfig: FormConfig;
-  resources = environment.resources;
+  formConfig: FieldSetConfig;
   formResources = formResources;
   showFields: boolean = true;
 
@@ -37,74 +35,74 @@ export class NxFormComponent implements OnInit, OnChanges {
   }
 
   async initializeComponent() {
-    this.formConfig = await this.setFormConfig(this.entity, this.edit);
+    this.formConfig = await this.setupFormConfig(this.entity);
   }
 
-  async setFormConfig(entity: any, edit: boolean = false): Promise<FormConfig> {
-    let customConfig = formResources[this.entityName];
-    let formConfig: FormConfig = {
-      title: edit ? customConfig.edit : customConfig.add,
-      icon: customConfig.icon,
-      fields: []
+  async setupFormConfig(entity: any): Promise<FieldSetConfig> {
+    let formConfig: FieldSetConfig = formResources[this.entityName];
+    return this.setupFieldSetConfig(entity, formConfig)
+  }
+
+  async setupFieldSetConfig(entity: any, formConfig: FieldSetConfig): Promise<FieldSetConfig> {
+    if (!formConfig) {
+      return;
     }
-    for (let prop in formResources[this.entityName].fields) {
-      if (!customConfig.fields[prop])
-        continue;
-      let field: FieldConfig = {
-        type: this.getFieldType(prop, entity, customConfig.fields[prop]),
-        name: prop,
-        label: this.getFieldLabel(prop, customConfig.fields[prop]),
-        value: this.getFieldValue(prop, entity, customConfig.fields[prop], edit),
-        options: await this.getFieldOptions(customConfig.fields[prop]),
-        validations: this.getFieldValidations(customConfig.fields[prop])
+    formConfig.fields.forEach(async conf => {
+      if (!conf)
+        return;
+
+      if (conf['name']) {
+        let fieldConfig = conf as FieldConfig
+        if (fieldConfig) {
+          fieldConfig.name = this.validateFieldName(fieldConfig.name, entity);
+          fieldConfig.label = this.getFieldLabel(fieldConfig.name, fieldConfig.label);
+          if (fieldConfig.type === 'input' && !fieldConfig.inputType) {
+            fieldConfig.inputType = 'text';
+          }
+          if (fieldConfig.options) {
+            fieldConfig.options = await this.getFieldOptions(fieldConfig.options);
+          }
+          fieldConfig.value = this.getFieldValue(fieldConfig.name, entity, fieldConfig.defaultValue);
+          fieldConfig.validations = this.getFieldValidations(fieldConfig.validations);
+          conf = fieldConfig;
+        }
       }
-      formConfig.fields.push(field);
-    }
-    this.showFields = false;
-    setTimeout(() => { this.showFields = true; })
-    return formConfig;
+      else if (conf['title']) {
+        let fieldSetConfig = conf as FieldSetConfig
+        if (fieldSetConfig) {
+          conf = await this.setupFieldSetConfig(entity, fieldSetConfig);
+        }
+      }
+    })
   }
 
-  getFieldType(propName: string, entity: any, config: any): string {
-    if (config && config.type)
-      return config.type;
-    if (entity[propName] !== null &&
-      entity[propName] !== undefined) {
-      switch (typeof entity[propName]) {
-        case 'boolean':
-          return 'checkbox';
-        case 'object':
-          if (entity[propName] instanceof Date)
-            return 'date';
+  validateFieldName(fieldName: string, entity: any): string {
+    if (entity) {
+      for (let prop in entity) {
+        if (prop && prop.toLowerCase() === fieldName.toLowerCase()) {
+          return prop;
+        }
       }
     }
-    return 'input';
+    return fieldName;
   }
 
-  getFieldLabel(propName: string, config: any): string {
-    if (config && config.label)
-      return config.label;
-    return propName.toUpperCase();
+  getFieldLabel(fieldName: string, configuredLabel: string): string {
+    if (configuredLabel)
+      return configuredLabel;
+    return fieldName.toUpperCase();
   }
 
-  getFieldValue(propName: string, entity: any, config: any, edit: boolean = false): any {
-    if (entity[propName])
-      return entity[propName];
-    if (config && config.defaultValue)
-      return config.defaultValue;
-    return undefined;
-  }
-
- async getFieldOptions(config: any): Promise<Array<string>> {
-    if (config && config.options) {
-      if (typeof config.options == 'string') {
-        let values = <Array<string>>await this.dataService.getLookupValues(config.options).toPromise();
+  async getFieldOptions(options: string | string[]): Promise<Array<string>> {
+    if (options) {
+      if (typeof options == 'string') {
+        let values = <Array<string>>await this.dataService.getLookupValues(options).toPromise();
         return values;
       }
-      else if (Array.isArray(config.options)) {
+      else if (Array.isArray(options)) {
         let options = [];
-        for (let i = 0; i < config.options.length; i++) {
-          options.push(config.options[i].toString())
+        for (let i = 0; i < options.length; i++) {
+          options.push(options[i].toString())
         }
         return options;
       }
@@ -114,20 +112,26 @@ export class NxFormComponent implements OnInit, OnChanges {
     return undefined;
   }
 
-  getFieldValidations(config: any): Array<ValidatorConfig> {
-    if (config && config.validations) {
-      let validators: ValidatorConfig[] = [];
-      for (var i = 0; i < config.validations.length; i++) {
-        let val = config.validations[i];
-        switch (val.name) {
+  getFieldValue(fieldName: string, entity: any, defaultValue?: any): any {
+    if (entity[fieldName])
+      return entity[fieldName];
+    if (defaultValue)
+      return defaultValue;
+    return undefined;
+  }
+
+  getFieldValidations(validations: Array<ValidatorConfig>): Array<ValidatorConfig> {
+    if (validations) {
+      for (var i = 0; i < validations.length; i++) {
+        switch (validations[i].name) {
           case 'required':
-            validators.push({ name: 'required', validator: Validators.required, message: val.message });
+            validations[i].validator = Validators.required;
             break;
           case 'pattern':
-            validators.push({ name: 'pattern', validator: Validators.pattern(val.pattern), message: val.message });
+            validations[i].validator = Validators.pattern(validations[i].pattern);
         }
       }
-      return validators;
+      return validations;
     }
     return [];
   }
@@ -139,5 +143,4 @@ export class NxFormComponent implements OnInit, OnChanges {
   onCancelClick() {
     this.onCancel.emit();
   }
-
 }

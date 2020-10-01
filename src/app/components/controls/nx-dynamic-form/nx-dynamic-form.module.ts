@@ -18,9 +18,8 @@ import {
   MatCheckboxModule,
   MatRadioModule,
 } from "@angular/material";
-import { MaterialFileInputModule } from 'ngx-material-file-input';
 
-import { DynamicFormComponent } from './dynamic-field-set/dynamic-field-set.component';
+import { NxFormContentComponent } from './nx-form-content/nx-form-content.component';
 import { DynamicFieldDirective } from './dynamic-field/dynamic-field.directive';
 import { InputComponent } from './entry-components/input/input.component';
 import { DateComponent } from './entry-components/date/date.component';
@@ -30,11 +29,12 @@ import { CheckboxComponent } from './entry-components/checkbox/checkbox.componen
 import { FileComponent } from './entry-components/file/file.component';
 import { TextAreaComponent } from './entry-components/text-area/text-area.component';
 import { AutocompleteComponent } from './entry-components/autocomplete/autocomplete.component';
+import { NxFieldSetComponent } from './nx-field-set/nx-field-set.component';
 
 @NgModule({
   declarations: [
     NxFormComponent, 
-    DynamicFormComponent, 
+    NxFormContentComponent, 
     DynamicFieldDirective, 
     InputComponent, 
     DateComponent, 
@@ -43,7 +43,8 @@ import { AutocompleteComponent } from './entry-components/autocomplete/autocompl
     CheckboxComponent, 
     FileComponent,
     TextAreaComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    NxFieldSetComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +63,6 @@ import { AutocompleteComponent } from './entry-components/autocomplete/autocompl
     MatRadioModule,
     FormsModule, 
     ReactiveFormsModule,
-    MaterialFileInputModule,
     MatAutocompleteModule
   ],
   exports: [
