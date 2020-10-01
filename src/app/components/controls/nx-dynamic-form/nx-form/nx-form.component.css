@@ -1,0 +1,24 @@
+.form {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+  .form .form-title {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background-color: #F2A232;
+  }
+
+.mat-form-field-wrapper {
+  width: 20em !important;
+}
+
+::ng-deep .form-title .white-icon .a {
+  fill: white;
+}

@@ -32,6 +32,7 @@ export class SamplesComponent implements OnInit {
       expectedTubeCount: 1,
       actualTubeCount: undefined,
       isPackageIntact: undefined,
+      tubeDefect: undefined
     }
     this.tubeValidation = ['color', 'volume', 'consistensy']
   }
@@ -47,6 +48,7 @@ export class SamplesComponent implements OnInit {
       'tubeActualCount': [null],
       'isPackageIntact': [null, Validators.required],
       'tube': [null],
+      'tubeDefect': [null],
       'validate': ''
     });
   }

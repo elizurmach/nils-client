@@ -1,64 +1,68 @@
 <div class="samples">
   <div class="title">{{title}}</div>
   <div class="content">
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="sample-form">
-      <div class="field-set">
-        <div class="field-set-caption">{{resources.generalInfo}}</div>
-        <mat-form-field [formGroup]="formGroup" class="field patientId">
-          <input matInput formControlName="patientId" placeholder="{{resources.patientId}}" type="text"
-                 [(ngModel)]="sample.patientId" readonly="readonly">
-        </mat-form-field>
-        <mat-form-field [formGroup]="formGroup" class="field samplePhoto">
-          <input matInput formControlName="samplePhoto" [(ngModel)]="sample.samplePhoto" style="display: none" />
-          <input style="display: none" type="file" (change)="onUploadSamplePhoto($event)" #hiddensamplephotoinput>
-          <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddensamplephotoinput.click()">
-            <span class="button-text">{{resources.uploadSamplePhoto}}</span>
-            <img class="button-img" src="../assets/images/icons/upload_image.png" />
-          </button>
-        </mat-form-field>
-        <mat-form-field [formGroup]="formGroup" class="field requisitionForm">
-          <input matInput formControlName="reqisutionForm" [(ngModel)]="sample.reqisutionForm" style="display: none" />
-          <input style="display: none" type="file" (change)="onUploadRequisitionForm($event)" #hiddenrequsisitionforminput>
-          <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddenrequsisitionforminput.click()">
-            <span class="button-text">{{resources.uploadRequisitionForm}}</span>
-            <img class="button-img" src="../assets/images/icons/upload_file.png" />
-          </button>
-        </mat-form-field>
-        <mat-form-field [formGroup]="formGroup" class="field test">
-          <mat-select placeholder="{{resources.addTest}}" formControlName="test" [(ngModel)]="sample.test">
-            <mat-option *ngFor="let item of testOptions" [value]="item">{{item}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="field dueDate">
-          <mat-label>{{resources.addDueDate}}</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="dueDate" [(ngModel)]="sample.dueDate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div class="field-set">
-        <div class="field-set-caption">{{resources.tubeInfo}}</div>
-        <mat-form-field [formGroup]="formGroup" class="field tubeExpectedCount">
-          <input matInput type="number" placeholder="{{resources.tubeExpectedCount}}" formControlName="tubeExpectedCount" [(ngModel)]="sample.tubeExpectedCount" />
-        </mat-form-field>
-        <mat-form-field [formGroup]="formGroup" class="field tubeActualCount">
-          <input matInput type="number" placeholder="{{resources.tubeActualCount}}" formControlName="tubeActualCount" [(ngModel)]="sample.tubeActualCount" />
-        </mat-form-field>
-        <mat-form-field [formGroup]="formGroup" class="field isPackageIntact">
-          <input matInput placeholder="{{resources.isPackageIntact}}" formControlName="isPackageIntact" [(ngModel)]="sample.isPackageIntact" />
-        </mat-form-field>
-      </div>
-      <div class="field-set">
-        <div class="field-set-caption">{{resources.contentInfo}}</div>
-        <mat-list multiple class="field">
-          <mat-list-item *ngFor="let check of tubeValidation">
-            <mat-checkbox>{{check}}</mat-checkbox>
-          </mat-list-item>
-        </mat-list>
-      </div>
-      <button mat-button type="button" button mat-raised-button class="nils-button submit" (click)="onSubmit($event)">
-        <span class="button-text">{{resources.submit}}</span>
-      </button>
-    </form>
+    <app-nx-form [entityName]="'sampleAccession'" [entity]="sample" (onSubmit)="onSubmit($event)"></app-nx-form>
+    <!--<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="sample-form">
+    <div class="field-set">
+      <div class="field-set-caption">{{resources.generalInfo}}</div>
+      <mat-form-field [formGroup]="formGroup" class="field patientId">
+        <input matInput formControlName="patientId" placeholder="{{resources.patientId}}" type="text"
+               [(ngModel)]="sample.patientId" readonly="readonly">
+      </mat-form-field>
+      <mat-form-field [formGroup]="formGroup" class="field samplePhoto">
+        <input matInput formControlName="samplePhoto" [(ngModel)]="sample.samplePhoto" style="display: none" />
+        <input style="display: none" type="file" (change)="onUploadSamplePhoto($event)" #hiddensamplephotoinput>
+        <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddensamplephotoinput.click()">
+          <span class="button-text">{{resources.uploadSamplePhoto}}</span>
+          <img class="button-img" src="../assets/images/icons/upload_image.png" />
+        </button>
+      </mat-form-field>
+      <mat-form-field [formGroup]="formGroup" class="field requisitionForm">
+        <input matInput formControlName="reqisutionForm" [(ngModel)]="sample.reqisutionForm" style="display: none" />
+        <input style="display: none" type="file" (change)="onUploadRequisitionForm($event)" #hiddenrequsisitionforminput>
+        <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddenrequsisitionforminput.click()">
+          <span class="button-text">{{resources.uploadRequisitionForm}}</span>
+          <img class="button-img" src="../assets/images/icons/upload_file.png" />
+        </button>
+      </mat-form-field>
+      <mat-form-field [formGroup]="formGroup" class="field test">
+        <mat-select placeholder="{{resources.addTest}}" formControlName="test" [(ngModel)]="sample.test">
+          <mat-option *ngFor="let item of testOptions" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="field dueDate">
+        <mat-label>{{resources.addDueDate}}</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dueDate" [(ngModel)]="sample.dueDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="field-set">
+      <div class="field-set-caption">{{resources.tubeInfo}}</div>
+      <mat-form-field [formGroup]="formGroup" class="field tubeExpectedCount">
+        <input matInput type="number" placeholder="{{resources.tubeExpectedCount}}" formControlName="tubeExpectedCount" [(ngModel)]="sample.tubeExpectedCount" />
+      </mat-form-field>
+      <mat-form-field [formGroup]="formGroup" class="field tubeActualCount">
+        <input matInput type="number" placeholder="{{resources.tubeActualCount}}" formControlName="tubeActualCount" [(ngModel)]="sample.tubeActualCount" />
+      </mat-form-field>
+      <mat-form-field [formGroup]="formGroup" class="field isPackageIntact">
+        <input matInput placeholder="{{resources.isPackageIntact}}" formControlName="isPackageIntact" [(ngModel)]="sample.isPackageIntact" />
+      </mat-form-field>
+    </div>
+    <div class="field-set">
+      <div class="field-set-caption">{{resources.contentInfo}}</div>
+      <mat-form-field [formGroup]="formGroup" class="field tubeDefect">
+        <mat-select multiple formControlName="tubeDefect" placeholder="{{resources.tubeDefect}}" [(ngModel)]="sample.tubeDefect">
+          <mat-option *ngFor="let check of tubeValidation">{{check}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="sample.tubeDefect" [formGroup]="formGroup" class="field tubeDefectNotes">
+        <input matInput placeholder="{{resources.tubeDefectNotes}}" formControlName="tubeDefectNotes" [(ngModel)]="sample.tubeDefectNotes" />
+      </mat-form-field>
+    </div>
+    <button mat-button type="button" button mat-raised-button class="nils-button submit" (click)="onSubmit($event)">
+      <span class="button-text">{{resources.submit}}</span>
+    </button>
+  </form>-->
   </div>
 </div>

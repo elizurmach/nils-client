@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+    "\\src\\app\\components\\controls",
+    "\\src\\app\\components\\controls\\nx-dynamic-form",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-form",
     "\\src\\app\\components\\samples",
-    "\\src\\app\\pipes",
     "\\src\\assets",
-    "\\src\\assets\\images",
-    "\\src\\assets\\images\\icons",
-    "\\src\\environments"
+    "\\src\\assets\\resources"
   ],
-  "SelectedNode": "\\src\\styles.css",
+  "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-form\\nx-form.component.ts",
   "PreviewInSolutionExplorer": false
 }

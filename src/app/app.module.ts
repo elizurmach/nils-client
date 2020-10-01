@@ -11,8 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideNavigationMenuComponent } from './components/side-navigation-menu/side-navigation-menu.component';
 import { NavigationLinksComponent } from './components/side-navigation-menu/navigation-links/navigation-links.component';
+import { NxFormModule } from './components/controls/nx-dynamic-form/nx-dynamic-form.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SamplesComponent } from './components/samples/samples.component';
+import { NewAccessionComponent } from './components/new-accession/new-accession.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { SamplesComponent } from './components/samples/samples.component';
     DateFormatPipe,
     NavigationLinksComponent,
     HomePageComponent,
-    SamplesComponent
+    SamplesComponent,
+    NewAccessionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    NxFormModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,

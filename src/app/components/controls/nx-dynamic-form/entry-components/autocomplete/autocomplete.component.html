@@ -1,0 +1,18 @@
+<div class="field-container nx-autocomplete">
+  <mat-form-field class="full-width margin-top" [formGroup]="group">
+    <input type="text" [formControlName]="field.name" [formControl]="control" [placeholder]="field.label" 
+        matInput [matAutocomplete]="auto" [(ngModel)]="field.value">
+    <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+      <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+    </ng-container>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+    <button mat-button *ngIf="field.value" matSuffix mat-icon-button aria-label="Clear" (click)="field.value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-icon aria-hidden="false" matSuffix svgIcon="edit_red"></mat-icon>
+  </mat-form-field>
+</div>

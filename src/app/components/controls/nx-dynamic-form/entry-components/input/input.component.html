@@ -1,0 +1,13 @@
+<div class="field-container nx-input">
+  <mat-form-field [formGroup]="group">
+      <input matInput [formControlName]="field.name" [placeholder]="field.label" [type]="field.inputType"
+           [(ngModel)]="field.value" [readonly]= "field.name == 'uploaded'">
+    <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+      <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+    </ng-container>
+    <button mat-button *ngIf="field.value" matSuffix mat-icon-button aria-label="Clear" (click)="field.value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-icon aria-hidden="false" matSuffix svgIcon="edit_red"></mat-icon>
+  </mat-form-field>
+</div>

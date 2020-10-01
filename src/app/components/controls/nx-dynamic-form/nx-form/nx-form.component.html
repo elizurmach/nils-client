@@ -1,0 +1,18 @@
+<div *ngIf="formConfig" class="form">
+  <div class="form-title">
+    <mat-icon class="white-icon" svgIcon="{{formConfig.icon}}"></mat-icon>
+    {{formConfig.title}}
+    <button mat-button matSuffix mat-icon-button aria-label="Close" (click)="onCancelClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="showFields" calss="field-set" style="padding: 30px">
+    <dynamic-field-set
+      [fields]="formConfig.fields"
+      (submit)="onSubmitClick($event)"
+      (cancel)="onCancelClick()"
+      >
+      <ng-content></ng-content>
+    </dynamic-field-set>
+  </div>
+</div>

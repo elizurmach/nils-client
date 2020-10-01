@@ -1,0 +1,8 @@
+.field-container {
+  width: 100%;
+  min-height: 55px;
+}
+
+::ng-deep .nx-autocomplete .mat-form-field-infix {
+  width: 250px;
+}

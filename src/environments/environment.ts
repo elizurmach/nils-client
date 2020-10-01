@@ -27,7 +27,11 @@ export const environment = {
     tubeActualCount: 'Tube actual count',
     isPackageIntact: 'Is pacage intact',
     contentInfo: 'Content Info',
-    submit: 'Submit'
+    submit: 'Submit',
+    tubeDefect: 'Tube defect verification',
+    tubeDefectNotes: 'Tube defect description',
+    save: 'Save',
+    cancel: 'Cancel'
   }
 };
 

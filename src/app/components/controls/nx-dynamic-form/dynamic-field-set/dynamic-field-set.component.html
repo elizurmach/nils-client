@@ -1,0 +1,15 @@
+<form class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)">
+  <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form">
+  </ng-container>
+  <ng-content></ng-content>
+  <div class="buttons-group">
+    <button type="submit" mat-raised-button class="kgb-button kgb-button-orange">
+      <img class="button-img icon-dark" src="../assets/images/icons/orange/save_orange.svg"/>
+      {{resources.save}}
+    </button>
+    <button type="button" button mat-raised-button class="kgb-button kgb-button-red" (click)="onCancelClick()">
+      <img class="button-img icon-dark" src="../assets/images/icons/red/cancel_red.svg"/>
+      {{resources.cancel}}
+    </button>
+  </div>
+</form>
