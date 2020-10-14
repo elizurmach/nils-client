@@ -1,0 +1,6 @@
+<div *ngIf="show" [class]="classes">
+  <span class="message">{{message}}</span>
+  <button class="close-button" mat-button matSuffix mat-icon-button aria-label="Close" (click)="onCloseClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

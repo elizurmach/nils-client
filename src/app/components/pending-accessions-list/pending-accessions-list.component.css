@@ -1,0 +1,46 @@
+.pending-accession-list {
+  position: absolute;
+  top: 200px;
+  bottom: 30px;
+  -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+}
+
+  .pending-accession-list.compressed {
+    left: 0;
+    width: 30px;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+  }
+
+  .pending-accession-list .content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+    .pending-accession-list .content .expand-button {
+      position: absolute;
+      top: 50px;
+      right: -20px;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      padding: 0;
+      border: none;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+      .pending-accession-list .content .expand-button .button-img {
+        height: 100%;
+        width: 100%;
+      }
+
+  .pending-accession-list.compressed .content .expand-button .button-img {
+    transform: rotate(180deg);
+  }

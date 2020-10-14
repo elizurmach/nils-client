@@ -30,7 +30,13 @@ export const environment = {
     tubeDefect: 'Tube defect verification',
     tubeDefectNotes: 'Tube defect description',
     save: 'Save',
-    cancel: 'Cancel'
+    cancel: 'Cancel',
+    createNewAccessionHeader: 'Create New Accession',
+    patientsInProgress:'Patients in progress',
+    createNewAccessionButtonText: 'Create New Accession',
+    noData: 'No data to show',
+    uniqueIdSavedAlertStart: 'Unique ID',
+    uniqueIdSavedAlertEnd: 'was saved'
   }
 };
 

@@ -103,7 +103,7 @@ export class NxFormComponent implements OnInit, OnChanges {
   async getFieldOptions(options: string | string[]): Promise<Array<string>> {
     if (options) {
       if (typeof options == 'string') {
-        let values = <Array<string>>await this.dataService.getLookupValues(options).toPromise();
+        let values = <Array<string>>await this.dataService.getLookupValues(options);
         return values;
       }
       else if (Array.isArray(options)) {

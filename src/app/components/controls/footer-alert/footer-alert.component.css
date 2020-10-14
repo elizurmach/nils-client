@@ -1,0 +1,32 @@
+.footer-alert {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  font-stretch: extra-expanded;
+}
+
+  .footer-alert.ok {
+    background: #08CFA7;
+  }
+
+  .footer-alert.warn {
+    background: #fff333;
+  }
+
+  .footer-alert.warn {
+    background: #d21900;
+  }
+
+  .footer-alert .message {
+    line-height: 60px;
+  }
+
+  .footer-alert .close-button {
+    margin: 10px;
+    float: right;
+  }

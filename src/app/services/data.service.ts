@@ -7,14 +7,20 @@ import { of } from 'rxjs';
 })
 export class DataService {
 
-  lookupValues: any = {
+  lookupValues: { [key: string]: Array<string> } = {
     'testTypes': ['Blader epi check', 'Lung epi check'],
     'containerFaults': ['Container integrity', 'Sample volume', 'Sample color', 'Sample consistency']
   };
 
   constructor(private http: HttpClient) { }
 
-  getLookupValues(key: string) {
-    return of(this.lookupValues[key]);
+  delay = ms => new Promise(res => setTimeout(res,ms))
+
+  getLookupValues(key: string): Promise<Array<string>> {
+    return of(this.lookupValues[key]).toPromise();
+  }
+
+  createNewAccession(): Promise<number> {
+    return this.delay(Math.floor(Math.random() * 1000)).then(() => { return Math.floor(Math.random() * 1000000); });
   }
 }

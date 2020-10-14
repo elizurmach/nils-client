@@ -15,6 +15,8 @@ import { NxFormModule } from './components/controls/nx-dynamic-form/nx-dynamic-f
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SamplesComponent } from './components/samples/samples.component';
 import { NewAccessionComponent } from './components/new-accession/new-accession.component';
+import { PendingAccessionsListComponent } from './components/pending-accessions-list/pending-accessions-list.component';
+import { FooterAlertComponent } from './components/controls/footer-alert/footer-alert.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NewAccessionComponent } from './components/new-accession/new-accession.
     NavigationLinksComponent,
     HomePageComponent,
     SamplesComponent,
-    NewAccessionComponent
+    NewAccessionComponent,
+    PendingAccessionsListComponent,
+    FooterAlertComponent
   ],
   imports: [
     BrowserModule,

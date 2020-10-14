@@ -1,0 +1,14 @@
+.main-content .new-accession.content-container {
+  padding-top: 120px;
+}
+
+.sub-title {
+  height: 40px;
+  padding: 0 30px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.create-new-accession-button{
+    margin: 30px 60px;
+}

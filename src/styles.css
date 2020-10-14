@@ -22,10 +22,10 @@ button:focus {
   height: 3em;
   min-width: 15em;
   border-radius: 1.5em;
-  font-weight: 300;
+  font-weight: 400;
   border: none;
-  background: inherit;
-  color: inherit;
+  background: #3fcce2;
+  color: #fff;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
   -moz-box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
@@ -40,7 +40,7 @@ button:focus {
   }
 
   .nils-button:not(.disabled):hover .button-text {
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .nils-button:not(.disabled):active .button-text {
@@ -51,6 +51,40 @@ button:focus {
     height: 1.2em;
     margin: 0 0.1em;
     line-height: initial;
+  }
+
+.main-content .content-container {
+  height: calc(100% - 80px);
+  width: 100%;
+  padding-top: 80px;
+  color: #929292;
+  position: relative;
+}
+
+  .main-content .content-container .header {
+    position: absolute;
+    top: 0;
+    color: #fff;
+  }
+
+  .main-content .content-container .header,
+  .main-content .content-container .title {
+    height: 80px;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0 30px;
+    line-height: 80px;
+  }
+
+  .main-content .content-container .content {
+    font-size: 14px;
+    height: calc(100% - 190px);
+    width: calc(100% - 50px);
+    margin: 0 30px 30px 20px;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
   }
 
 /*TO DO: move to nx-dynamic-form module*/
@@ -84,6 +118,8 @@ button:focus {
   bottom: 0;
   left: 0;
   right: 0;
+  background: inherit;
+  color: inherit;
 }
 
 .nx-file-upload .mat-form-field-underline {
@@ -93,4 +129,3 @@ button:focus {
 .dynamic-form .field-set:first-child .field-set-caption {
   padding-top: 0;
 }
-
