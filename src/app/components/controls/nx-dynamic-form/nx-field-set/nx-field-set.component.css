@@ -1,0 +1,10 @@
+.field-set {
+    width: 100%;
+}
+
+.field-set-caption {
+  padding: 20px 20px 10px 20px;
+  font-size: 16px;
+  color: #3fcce2;
+  font-weight: 600;
+}

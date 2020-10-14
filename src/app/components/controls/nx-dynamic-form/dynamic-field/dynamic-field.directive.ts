@@ -1,6 +1,7 @@
 import { OnInit, ComponentFactoryResolver, Directive, Input, ViewContainerRef, ComponentFactory } from '@angular/core';
 import { FormGroup } from "@angular/forms";
-import { FieldConfig, FieldSetConfig } from "../infra/form.interfaces";
+import { FieldConfig } from "../model/field-config";
+import { FieldSetConfig } from "../model/field-set-config";
 import { InputComponent } from "../entry-components/input/input.component";
 import { SelectComponent } from "../entry-components/select/select.component";
 import { DateComponent } from "../entry-components/date/date.component";
@@ -34,7 +35,7 @@ export class DynamicFieldDirective implements OnInit {
   constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef) {}
 
   ngOnInit() {
-    if (this.field['name']) {
+    if (this.field.hasOwnProperty('name')) {
       let fieldConfig = this.field as FieldConfig;
       if (fieldConfig) {
         const factory = this.resolver.resolveComponentFactory(
@@ -43,7 +44,7 @@ export class DynamicFieldDirective implements OnInit {
         this.createComponent(factory);
       }
     }
-    else if (this.field['title']) {
+    else if (this.field.hasOwnProperty('title')) {
       let fieldSetConfig = this.field as FieldSetConfig;
       if (fieldSetConfig) {
         const factory = this.resolver.resolveComponentFactory(NxFieldSetComponent);

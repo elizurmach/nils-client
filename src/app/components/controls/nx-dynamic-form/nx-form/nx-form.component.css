@@ -8,11 +8,9 @@
     color: white;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     height: 70px;
     width: 100%;
-    background-color: #F2A232;
+    background-color: #929292;
   }
 
 .mat-form-field-wrapper {

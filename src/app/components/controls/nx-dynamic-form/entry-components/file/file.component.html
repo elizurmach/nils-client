@@ -1,8 +1,10 @@
-<mat-form-field [formGroup]="group" class="field">
-  <input matInput [formControlName]="field.name" [(ngModel)]="field.value" style="display: none" />
-  <input style="display: none" type="file" #hiddenfileinput>
-  <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddenfileinput.click()">
-    <span class="button-text">{{field.label}}</span>
-    <img class="button-img" src="field.icon" />
-  </button>
-</mat-form-field>
+<div class="field-container nx-file-upload">
+  <mat-form-field [formGroup]="group" class="field">
+    <input matInput [formControlName]="field.name" [(ngModel)]="field.value" style="display: none" />
+    <input style="display: none" type="file" #hiddenfileinput>
+    <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddenfileinput.click()">
+      <span class="button-text">{{field.label}}</span>
+      <mat-icon class="button-img" svgIcon="{{field.icon}}"></mat-icon>
+    </button>
+  </mat-form-field>
+</div>

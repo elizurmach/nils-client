@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  icons: ["../assets/images/icons/upload_form.svg",],
   resources: {
     home: 'Home',
     expand: 'Expand',

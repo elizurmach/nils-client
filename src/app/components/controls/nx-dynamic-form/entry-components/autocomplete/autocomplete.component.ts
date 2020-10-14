@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
-import { FieldConfig } from "../../Infra/form.interfaces";
+import { FieldConfig } from "../../model/field-config";
 import { Observable } from 'rxjs';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';

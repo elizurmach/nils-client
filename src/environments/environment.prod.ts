@@ -1,3 +1,31 @@
 export const environment = {
-  production: true
+  production: true,
+  resources: {
+    home: 'Home',
+    expand: 'Expand',
+    userIcon: 'User',
+    hello: 'Hello',
+    userDetails: 'User Details...',
+    patientAccessioning: 'Patient accessioning',
+    samples: 'Samples',
+    audit: 'Audit',
+    sampleStatus: 'Sample status',
+    labDirectorReport: 'Lab director report',
+    companyLogo: "Copyright &copy 2018' Nucleix Ltd. All rights reserved",
+    uploadSamplePhoto: "Upload Photo of Sample",
+    uploadRequisitionForm: 'Upload Requisition Form',
+    addTest: 'Add test',
+    generalInfo: 'General Info',
+    addDueDate: 'Add due date',
+    tubeInfo: 'Tube Info',
+    tubeExpectedCount: 'Tube expected count',
+    tubeActualCount: 'Tube actual count',
+    isPackageIntact: 'Is pacage intact',
+    contentInfo: 'Content Info',
+    submit: 'Submit',
+    tubeDefect: 'Tube defect verification',
+    tubeDefectNotes: 'Tube defect description',
+    save: 'Save',
+    cancel: 'Cancel'
+  }
 };

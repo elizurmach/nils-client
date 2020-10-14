@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FieldSetConfig } from '../Infra/form.interfaces';
+import { FieldSetConfig } from "../model/field-set-config";
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-nx-field-set',
@@ -8,7 +9,8 @@ import { FieldSetConfig } from '../Infra/form.interfaces';
 })
 export class NxFieldSetComponent implements OnInit {
 
-  @Input() field: FieldSetConfig
+  field: FieldSetConfig
+  group: FormGroup;
   constructor() { }
 
   ngOnInit() {

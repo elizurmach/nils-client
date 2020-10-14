@@ -3,6 +3,6 @@
     <mat-icon *ngIf="field.icon" class="icon" svgIcon="{{field.icon}}"></mat-icon>
     {{field.title}}
   </div>
-  <ng-container *ngFor="let fld of field.fields;" dynamicField [field]="fld" [group]="form">
+  <ng-container *ngFor="let fld of field.fields;" dynamicField [field]="fld" [group]="group">
   </ng-container>
 </div>

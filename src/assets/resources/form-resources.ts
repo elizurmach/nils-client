@@ -1,7 +1,8 @@
-import { FieldSetConfig } from 'src/app/components/controls/nx-dynamic-form/Infra/form.interfaces';
+import { FieldSetConfig } from 'src/app/components/controls/nx-dynamic-form/model/field-set-config';
 
 export const resources: { [key: string]: FieldSetConfig } = {
   'sampleAccession': {
+    title: '',
     fields: [{
       title: 'General information',
       fields: [{
@@ -19,6 +20,7 @@ export const resources: { [key: string]: FieldSetConfig } = {
         name: 'samplePhoto',
         label: 'Upload Photo of Sample',
         type: 'file',
+        icon: 'upload_image',
         validations: [{
           name: 'required',
           message: 'A photo of the sample is required'
@@ -28,12 +30,16 @@ export const resources: { [key: string]: FieldSetConfig } = {
         name: 'requisitionForm',
         label: 'Upload Requisition Form',
         type: 'file',
+        icon: 'upload_file',
         validations: [{
           name: 'required',
           message: 'A copy of the requisition form is required'
         }]
-      },
-      {
+      }]
+    },
+    {
+      title: '',
+      fields: [{
         name: 'requiredTest',
         label: 'Select test',
         type: 'select',
@@ -62,8 +68,11 @@ export const resources: { [key: string]: FieldSetConfig } = {
         label: 'Expected container count',
         type: 'input',
         inputType: 'number'
-      },
-      {
+      }]
+    },
+    {
+      title: '',
+      fields: [{
         name: 'isPackageIntact',
         label: 'Is package intact',
         type: 'checkbox'

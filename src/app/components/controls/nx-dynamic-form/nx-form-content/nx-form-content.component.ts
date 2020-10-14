@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef, AfterViewInit, ElementRef } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { FieldConfig, FieldSetConfig } from "../Infra/form.interfaces";
+import { FieldConfig } from "../model/field-config";
+import { FieldSetConfig } from "../model/field-set-config";
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -56,12 +57,14 @@ export class NxFormContentComponent implements OnInit, AfterViewInit {
       if (!field)
         return;
 
-      let fieldConfig = field as FieldConfig;
-      if (fieldConfig) {
-        this.createControl(fieldConfig, fg);
+      if (field.hasOwnProperty('name')) {
+        let fieldConfig = field as FieldConfig
+        if (fieldConfig) {
+          this.createControl(fieldConfig, fg);
+        }
       }
-      else {
-        let fieldSetConfig = field as FieldSetConfig;
+      else if (field.hasOwnProperty('title')) {
+        let fieldSetConfig = field as FieldSetConfig
         if (fieldSetConfig) {
           this.setupControls(fieldSetConfig.fields, fg);
         }

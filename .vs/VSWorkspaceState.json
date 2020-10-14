@@ -6,10 +6,10 @@
     "\\src\\app\\components",
     "\\src\\app\\components\\controls",
     "\\src\\app\\components\\controls\\nx-dynamic-form",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\model",
     "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-form",
-    "\\src\\app\\components\\samples",
-    "\\src\\assets",
-    "\\src\\assets\\resources"
+    "\\src\\app\\components\\new-accession",
+    "\\src\\app\\components\\samples"
   ],
   "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-form\\nx-form.component.ts",
   "PreviewInSolutionExplorer": false

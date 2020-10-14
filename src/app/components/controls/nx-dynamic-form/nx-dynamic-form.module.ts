@@ -31,6 +31,7 @@ import { TextAreaComponent } from './entry-components/text-area/text-area.compon
 import { AutocompleteComponent } from './entry-components/autocomplete/autocomplete.component';
 import { NxFieldSetComponent } from './nx-field-set/nx-field-set.component';
 
+
 @NgModule({
   declarations: [
     NxFormComponent, 
@@ -76,7 +77,9 @@ import { NxFieldSetComponent } from './nx-field-set/nx-field-set.component';
     CheckboxComponent,
     FileComponent,
     TextAreaComponent,
-    AutocompleteComponent
-  ]
+    AutocompleteComponent,
+    NxFieldSetComponent
+  ],
+  bootstrap: [NxFormComponent]
 })
 export class NxFormModule { }

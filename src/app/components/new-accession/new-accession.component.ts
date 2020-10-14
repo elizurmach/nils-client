@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewAccessionComponent implements OnInit {
 
+  public title: string;
+
   constructor() { }
 
   ngOnInit() {

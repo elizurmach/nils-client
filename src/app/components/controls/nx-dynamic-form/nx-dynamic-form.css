@@ -1,0 +1,39 @@
+.mat-form-field .nils-button,
+.mat-form-field .mat-button-base.nils-button {
+  width: 100%;
+}
+
+.field-container {
+  display: inline-block;
+  padding: 10px 30px;
+  min-width: 17em;
+}
+
+  .field-container .mat-form-field {
+    width: 100%;
+  }
+
+  .field-container .mat-form-field-suffix .mat-icon {
+    font-size: inherit;
+    vertical-align: middle;
+  }
+
+  .field-container.nx-input,
+  .field-container.nx-autocomplete {
+    min-height: 55px;
+  }
+
+.nx-file-upload .nils-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.nx-file-upload .mat-form-field-underline {
+  display: none;
+}
+
+.dynamic-form .field-set:first-child .field-set-caption {
+  padding-top: 0;
+}

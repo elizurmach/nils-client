@@ -1,5 +1,5 @@
 <div *ngIf="formConfig" class="form">
-  <div class="form-title">
+  <div *ngIf="formConfig.title" class="form-title">
     <mat-icon class="white-icon" svgIcon="{{formConfig.icon}}"></mat-icon>
     {{formConfig.title}}
     <button mat-button matSuffix mat-icon-button aria-label="Close" (click)="onCancelClick()">
@@ -7,10 +7,9 @@
     </button>
   </div>
   <div *ngIf="showFields" calss="field-set" style="padding: 30px">
-    <nx-form-content
-      [fields]="formConfig.fields"
-      (submit)="onSubmitClick($event)"
-      (cancel)="onCancelClick()">
+    <nx-form-content [fields]="formConfig.fields"
+                     (submit)="onSubmitClick($event)"
+                     (cancel)="onCancelClick()">
       <ng-content></ng-content>
     </nx-form-content>
   </div>

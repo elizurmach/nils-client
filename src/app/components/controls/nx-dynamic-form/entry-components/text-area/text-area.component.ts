@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FieldConfig } from '../../Infra/form.interfaces';
+import { FieldConfig } from "../../model/field-config";
 import { FormGroup } from '@angular/forms';
 
 @Component({

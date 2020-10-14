@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-import { FieldSetConfig, FieldConfig, ValidatorConfig } from '../Infra/form.interfaces';
+import { ValidatorConfig } from '../model/validator-config';
+import { FieldConfig } from "../model/field-config";
+import { FieldSetConfig } from "../model/field-set-config";
 import { resources as formResources } from 'src/assets/resources/form-resources'
 import { Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
@@ -20,7 +22,7 @@ export class NxFormComponent implements OnInit, OnChanges {
   @Output() onButton = new EventEmitter<any>();
   formConfig: FieldSetConfig;
   formResources = formResources;
-  showFields: boolean = true;
+  showFields: boolean = false;
 
   constructor(private dataService: DataService) {
 
@@ -35,7 +37,11 @@ export class NxFormComponent implements OnInit, OnChanges {
   }
 
   async initializeComponent() {
-    this.formConfig = await this.setupFormConfig(this.entity);
+    this.setupFormConfig(this.entity).then(config => {
+      this.formConfig = config;
+      this.showFields = false;
+      setTimeout(() => { this.showFields = true; });
+    });
   }
 
   async setupFormConfig(entity: any): Promise<FieldSetConfig> {
@@ -51,7 +57,7 @@ export class NxFormComponent implements OnInit, OnChanges {
       if (!conf)
         return;
 
-      if (conf['name']) {
+      if (conf.hasOwnProperty('name')) {
         let fieldConfig = conf as FieldConfig
         if (fieldConfig) {
           fieldConfig.name = this.validateFieldName(fieldConfig.name, entity);
@@ -67,13 +73,14 @@ export class NxFormComponent implements OnInit, OnChanges {
           conf = fieldConfig;
         }
       }
-      else if (conf['title']) {
+      else if (conf.hasOwnProperty('title')) {
         let fieldSetConfig = conf as FieldSetConfig
         if (fieldSetConfig) {
           conf = await this.setupFieldSetConfig(entity, fieldSetConfig);
         }
       }
     })
+    return formConfig;
   }
 
   validateFieldName(fieldName: string, entity: any): string {
