@@ -1,14 +1,12 @@
 <div class="new-accession content-container">
   <div class="header">{{header}}</div>
-  <div class="title">{{title}}</div>
-  <div class="sub-title">{{subTitle}}</div>
+  <div class="title" [innerHtml]="title"></div>
+  <div *ngIf="subTitle" class="sub-title" [innerHtml]="subTitle"></div>
   <app-pending-accessions-list></app-pending-accessions-list>
-  <button *ngIf="stage === 0" mat-button type="button" button mat-raised-button class="nils-button create-new-accession-button" (click)="createNewAccesionClick()">
-    <span class="button-text">{{resources.createNewAccessionButtonText}}</span>
-  </button>
-  <div *ngIf="stage === 2" class="content">
-  </div>
+  <app-new-accession-first *ngIf="stage === 0" (CreateAccassion)="createNewAccesion()"></app-new-accession-first>
+  <app-new-accession-second *ngIf="stage === 1" [options]="tests" (testSelected)="onTestSelected($event)"></app-new-accession-second>
+  <app-new-accession-requisition-form *ngIf="stage === 2"></app-new-accession-requisition-form>
   <ng-container *ngIf="accessionId">
-    <app-footer-alert [level]="'ok'" [message]="alert"></app-footer-alert>
+    <app-footer-alert [level]="'ok'" [message]="alert" [autoClose]="10" (onClose)="onAlertClosed()"></app-footer-alert>
   </ng-container>
 </div>

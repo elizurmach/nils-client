@@ -68,12 +68,26 @@ button:focus {
   }
 
   .main-content .content-container .header,
+  .main-content .content-container .title,
+  .main-content .content-container .sub-title {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .main-content .content-container .header,
   .main-content .content-container .title {
     height: 80px;
     font-size: 24px;
     font-weight: 700;
-    padding: 0 30px;
     line-height: 80px;
+  }
+
+  .main-content .content-container .sub-title {
+    height: 40px;
+    font-size: 12px;
+    font-weight: 500;
   }
 
   .main-content .content-container .content {
@@ -86,6 +100,27 @@ button:focus {
     -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
   }
+
+.option {
+  display: flex;
+  flex-direction: row;
+}
+
+.emphesize {
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 0.6em;
+  background: #3fcce2;
+  display: block;
+  align-self: center;
+  line-height: 1.2em;
+  text-align: center;
+  color: #fff;
+}
+
+.normal {
+  display: block;
+}
 
 /*TO DO: move to nx-dynamic-form module*/
 .mat-form-field .nils-button,

@@ -8,7 +8,7 @@ import { of } from 'rxjs';
 export class DataService {
 
   lookupValues: { [key: string]: Array<string> } = {
-    'testTypes': ['Blader epi check', 'Lung epi check'],
+    'testTypes': ['Blader EpiCheck', 'Lung EpiCheck'],
     'containerFaults': ['Container integrity', 'Sample volume', 'Sample color', 'Sample consistency']
   };
 

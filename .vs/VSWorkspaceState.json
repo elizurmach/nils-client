@@ -5,12 +5,12 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\controls",
-    "\\src\\app\\components\\controls\\nx-dynamic-form",
-    "\\src\\app\\components\\controls\\nx-dynamic-form\\model",
-    "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-form",
-    "\\src\\app\\components\\new-accession",
-    "\\src\\app\\components\\samples"
+    "\\src\\app\\components\\controls\\footer-alert",
+    "\\src\\app\\components\\pending-accessions-list",
+    "\\src\\app\\services",
+    "\\src\\assets",
+    "\\src\\assets\\resources"
   ],
-  "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-form\\nx-form.component.ts",
+  "SelectedNode": "\\src\\app\\app.component.ts",
   "PreviewInSolutionExplorer": false
 }

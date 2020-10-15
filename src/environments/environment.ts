@@ -32,11 +32,15 @@ export const environment = {
     save: 'Save',
     cancel: 'Cancel',
     createNewAccessionHeader: 'Create New Accession',
-    patientsInProgress:'Patients in progress',
+    patientsInProgress: 'Patients in progress',
     createNewAccessionButtonText: 'Create New Accession',
     noData: 'No data to show',
     uniqueIdSavedAlertStart: 'Unique ID',
-    uniqueIdSavedAlertEnd: 'was saved'
+    uniqueIdSavedAlertEnd: 'was saved',
+    newRequisitionForm: 'New Requisition Form',
+    testOrderedLabel: 'Test Ordered',
+    asterisk: '*',
+    requiredFields: 'Required fields'
   }
 };
 

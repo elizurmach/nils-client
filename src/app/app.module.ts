@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule, MatButtonModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatSortModule, MatSelectModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatCheckboxModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { DateFormatPipe } from './pipes/date-format-pipe.pipe';
+import { DateFormatPipe } from './pipes/date-format.pipe';
+import { EmphesizeFirstCharecter } from './pipes/emphesize-first-charecter.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,18 +18,25 @@ import { SamplesComponent } from './components/samples/samples.component';
 import { NewAccessionComponent } from './components/new-accession/new-accession.component';
 import { PendingAccessionsListComponent } from './components/pending-accessions-list/pending-accessions-list.component';
 import { FooterAlertComponent } from './components/controls/footer-alert/footer-alert.component';
+import { NewAccessionFirstComponent } from './components/new-accession/new-accession-first/new-accession-first.component';
+import { NewAccessionSecondComponent } from './components/new-accession/new-accession-second/new-accession-second.component';
+import { NewAccessionRequisitionFormComponent } from './components/new-accession/new-accession-requisition-form/new-accession-requisition-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavigationMenuComponent,
     DateFormatPipe,
+    EmphesizeFirstCharecter,
     NavigationLinksComponent,
     HomePageComponent,
     SamplesComponent,
     NewAccessionComponent,
     PendingAccessionsListComponent,
-    FooterAlertComponent
+    FooterAlertComponent,
+    NewAccessionFirstComponent,
+    NewAccessionSecondComponent,
+    NewAccessionRequisitionFormComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,7 @@ import { FooterAlertComponent } from './components/controls/footer-alert/footer-
     MatListModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [EmphesizeFirstCharecter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

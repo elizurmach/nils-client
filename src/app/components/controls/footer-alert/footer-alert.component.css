@@ -18,7 +18,7 @@
     background: #fff333;
   }
 
-  .footer-alert.warn {
+  .footer-alert.error {
     background: #d21900;
   }
 
@@ -30,3 +30,45 @@
     margin: 10px;
     float: right;
   }
+
+  .footer-alert.ok.fade-out {
+    animation: fadeoutredgreen 11s infinite;
+  }
+
+  .footer-alert.warn.fade-out {
+    animation: fadeoutyello 11s infinite;
+  }
+
+  .footer-alert.error.fade-out {
+    animation: fadeoutred 11s infinite;
+  }
+
+@keyframes fadeoutred {
+  from {
+    background-color: #d21900;
+  }
+
+  to {
+    background-color: rgba(210,25,0,0);
+  }
+}
+
+@keyframes fadeoutyello {
+  from {
+    background-color: #fff333;
+  }
+
+  to {
+    background-color: rgba(255,543,51,0);
+  }
+}
+
+@keyframes fadeoutredgreen {
+  from {
+    background-color: #08CFA7;
+  }
+
+  to {
+    background-color: rgba(8,207,167,0);
+  }
+}
