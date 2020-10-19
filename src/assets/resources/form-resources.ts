@@ -1,6 +1,6 @@
-import { FieldSetConfig } from 'src/app/components/controls/nx-dynamic-form/model/field-set-config';
+import { FormConfig } from 'src/app/components/controls/nx-dynamic-form/model/form-config';
 
-export const resources: { [key: string]: FieldSetConfig } = {
+export const resources: { [key: string]: FormConfig } = {
   'sampleAccession': {
     title: '',
     fields: [{
@@ -90,5 +90,151 @@ export const resources: { [key: string]: FieldSetConfig } = {
         inputType: 'text'
       }]
     }]
+  },
+  'newAccessionRequisitionForm': {
+    title: '',
+    fields: [{
+      title: 'General Info',
+      fields: [{
+        name: 'accountNumber',
+        label: 'Account number',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'Account number is a mandatory field'
+        }]
+      },
+      {
+        name: 'phoneNumber',
+        label: 'Phone number',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'Phone number is a mandatory field'
+        }]
+      },
+      {
+        name: 'formPhotos',
+        label: 'Manage pictures',
+        type: 'file',
+        icon: 'upload_image'
+      }]
+    },
+    {
+      title: '',
+      fields: [{
+        name: 'firstName',
+        label: 'First name',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'First name is a mandatory field'
+        }]
+      },
+      {
+        name: 'secondName',
+        label: 'Second name',
+        type: 'input',
+        inputType: 'text'
+      },
+      {
+        name: 'lastName',
+        label: 'Last name',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'Last name is a mandatory field'
+        }]
+      },
+      {
+        name: 'birthDate',
+        label: 'Birth date',
+        type: 'date',
+        validations: [{
+          name: 'required',
+          message: 'Birth date is a mandatory field'
+        }]
+      }]
+    },
+    {
+      title: 'Address',
+      fields: [{
+        name: 'state',
+        label: 'State',
+        type: 'autocomplete',
+        options: 'states',
+        validations: [{
+          name: 'required',
+          message: 'State is a mandatory field'
+        }]
+      },
+      {
+        name: 'city',
+        label: 'City',
+        type: 'autocomplete',
+        options: 'cities',
+        validations: [{
+          name: 'required',
+          message: 'City is a mandatory field'
+        }]
+      },
+      {
+        name: 'street',
+        label: 'Street',
+        type: 'autocomplete',
+        options: 'streets',
+        validations: [{
+          name: 'required',
+          message: 'Street is a mandatory field'
+        }]
+      },
+      {
+        name: 'zipCode',
+        label: 'Zip code',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'Zip code is a mandatory field'
+        }]
+      }]
+    },
+    {
+      title: 'Physicians Info',
+      fields: [{
+        name: 'referingPhysician',
+        label: 'Refering physician',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'Refering physician is a mandatory field'
+        }]
+      },
+      {
+        name: 'treatingPhysician',
+        label: 'Treating physician',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'Treating physician is a mandatory field'
+        }]
+      },
+      {
+        name: 'npi',
+        label: 'NPI',
+        type: 'input',
+        inputType: 'text',
+        validations: [{
+          name: 'required',
+          message: 'NPI is a mandatory field'
+        }]
+      }]
+    }],
   }
 }

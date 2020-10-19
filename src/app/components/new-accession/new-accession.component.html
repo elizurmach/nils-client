@@ -5,8 +5,8 @@
   <app-pending-accessions-list></app-pending-accessions-list>
   <app-new-accession-first *ngIf="stage === 0" (CreateAccassion)="createNewAccesion()"></app-new-accession-first>
   <app-new-accession-second *ngIf="stage === 1" [options]="tests" (testSelected)="onTestSelected($event)"></app-new-accession-second>
-  <app-new-accession-requisition-form *ngIf="stage === 2"></app-new-accession-requisition-form>
-  <ng-container *ngIf="accessionId">
+  <app-new-accession-requisition-form *ngIf="stage === 2" [accession]="accession"></app-new-accession-requisition-form>
+  <ng-container *ngIf="accession.id">
     <app-footer-alert [level]="'ok'" [message]="alert" [autoClose]="10" (onClose)="onAlertClosed()"></app-footer-alert>
   </ng-container>
 </div>

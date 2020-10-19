@@ -13,18 +13,17 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   public header: string;
   public title: string;
   public subTitle: string;
-  public accessionId: number;
   public alert: string;
   public tests: Array<string>;
   public resources = environment.resources;
   public stage: number;
   public accession: any;
-  private orderdTest: string;
 
   constructor(private service: DataService, private pipe: EmphesizeFirstCharecter) { }
 
   ngOnInit() {
     this.stage = 0;
+    this.accession = {};
     this.header = this.resources.createNewAccessionHeader;
     this.service.getLookupValues('testTypes').then(res => this.tests = res);
     this.initializeComponent();
@@ -46,7 +45,7 @@ export class NewAccessionComponent implements OnInit, OnChanges {
         break;
       case 2:
         this.title = `${this.resources.newRequisitionForm}<div class="sub-title">${this.resources.asterisk}${this.resources.requiredFields}</div>`;
-        this.subTitle = this.pipe.transform(this.orderdTest);
+        this.subTitle = this.pipe.transform(this.accession.orderdTest);
         break;
     }
   }
@@ -54,15 +53,15 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   createNewAccesion() {
     this.stage = 1;
     this.service.createNewAccession().then(id => {
-      this.accessionId = id;
-      this.alert = `${this.resources.uniqueIdSavedAlertStart} (${this.accessionId}) ${this.resources.uniqueIdSavedAlertEnd}`;
+      this.accession.id = id;
+      this.alert = `${this.resources.uniqueIdSavedAlertStart} (${this.accession.id}) ${this.resources.uniqueIdSavedAlertEnd}`;
       this.initializeComponent();
     });
   }
 
   onTestSelected(value: string) {
     this.stage = 2;
-    this.orderdTest = value;
+    this.accession.orderdTest = value;
     this.initializeComponent();
   }
 

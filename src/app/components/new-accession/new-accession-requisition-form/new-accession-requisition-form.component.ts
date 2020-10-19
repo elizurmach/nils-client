@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewChecked } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-new-accession-requisition-form',
@@ -6,11 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-accession-requisition-form.component.css']
 })
 
-export class NewAccessionRequisitionFormComponent implements OnInit {
+export class NewAccessionRequisitionFormComponent implements AfterViewChecked {
 
-  constructor() { }
+  @Input() accession: any;
 
-  ngOnInit() {
+  public resources = environment.resources;
+
+  private idAdded: boolean = false;
+
+  constructor(private element: ElementRef) { }
+
+  ngAfterViewChecked(): void {
+    if (this.idAdded) {
+      return;
+    }
+    var caption = this.element.nativeElement.querySelector('.field-set-caption');
+    if (caption) {
+      this.idAdded = true;
+      caption.innerText += ` | ${this.resources.uniqeId} (${this.accession.id})`;
+    }
   }
 
+  onSubmit($event) { }
 }

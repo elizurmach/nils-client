@@ -5,6 +5,7 @@ import { FieldSetConfig } from "../model/field-set-config";
 import { resources as formResources } from 'src/assets/resources/form-resources'
 import { Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
+import { FormConfig } from '../model/form-config';
 
 @Component({
   selector: 'app-nx-form',
@@ -20,7 +21,7 @@ export class NxFormComponent implements OnInit, OnChanges {
   @Output() onSubmit = new EventEmitter();
   @Output() onCancel = new EventEmitter();
   @Output() onButton = new EventEmitter<any>();
-  formConfig: FieldSetConfig;
+  formConfig: FormConfig;
   formResources = formResources;
   showFields: boolean = false;
 

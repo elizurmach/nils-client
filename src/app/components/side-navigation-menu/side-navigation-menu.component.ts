@@ -30,10 +30,10 @@ export class SideNavigationMenuComponent implements OnInit {
   }
 
   navLinks = [
-    { label: this.resources.patientAccessioning, path: 'new-accession', imgPath: '/assets/images/icons/patient.svg' },
-    { label: this.resources.samples, path: 'samples', imgPath: '/assets/images/icons/samples.svg' },
-    { label: this.resources.audit, path: 'audit', imgPath: '/assets/images/icons/audit.svg' },
-    { label: this.resources.sampleStatus, path: 'sampleStatus', imgPath: '/assets/images/icons/tracking.svg' },
-    { label: this.resources.labDirectorReport, path: 'labDirectorReport', imgPath: '/assets/images/icons/report.svg' }
+    { label: this.resources.patientAccessioning, path: 'new-accession', imgPath: 'patient' },
+    { label: this.resources.samples, path: 'samples', imgPath: 'samples' },
+    { label: this.resources.audit, path: 'audit', imgPath: 'audit' },
+    { label: this.resources.sampleStatus, path: 'sampleStatus', imgPath: 'tracking' },
+    { label: this.resources.labDirectorReport, path: 'labDirectorReport', imgPath: 'report' }
   ];
 }

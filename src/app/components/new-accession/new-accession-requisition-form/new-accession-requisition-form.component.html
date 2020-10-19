@@ -1,1 +1,24 @@
-<p>new-accession-requisition-form works!</p>
+<div class="new-accession-requisition-form">
+  <mat-tab-group>
+    <mat-tab label="{{resources.requisitionFormFlatTab}}">
+      <div class="requisition-form-flat tab-content">
+        <app-nx-form [entityName]="'newAccessionRequisitionForm'" [entity]="accession" (onSubmit)="onSubmit($event)">
+          <button type="button" button mat-raised-button class="nils-button" (click)="onCancelClick()">
+            <mat-icon class="button-img" svgIcon="cancel"></mat-icon>
+            {{resources.cancel}}
+          </button>
+        </app-nx-form>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{resources.requisitionFormFormatedTab}}">
+      <div class="requisition-form-formated tab-content">
+
+      </div>
+    </mat-tab>
+    <mat-tab label="{{resources.requisitionFormValidationsTab}}">
+      <div class="requisition-form-validations tab-content">
+
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,15 @@
+.new-accession-requisition-form {
+  padding: 0 30px 0 60px;
+}
+
+  .new-accession-requisition-form ::ng-deep .mat-tab-label {
+    border-radius: 24px 24px 0 0;
+    background: #e4e4e5;
+    min-width: 250px;
+    margin-right: 20px;
+  }
+
+  .new-accession-requisition-form ::ng-deep .mat-tab-label-active {
+    background: #3fcce2;
+    color: #fff;
+  }

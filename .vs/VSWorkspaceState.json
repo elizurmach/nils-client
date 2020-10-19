@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\controls",
-    "\\src\\app\\components\\controls\\footer-alert",
-    "\\src\\app\\components\\pending-accessions-list",
+    "\\src\\app\\components\\samples",
     "\\src\\app\\services",
     "\\src\\assets",
-    "\\src\\assets\\resources"
+    "\\src\\assets\\images",
+    "\\src\\assets\\images\\icons",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\environments\\environment.ts",
   "PreviewInSolutionExplorer": false
 }

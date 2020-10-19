@@ -1,6 +1,6 @@
 .pending-accession-list {
   position: absolute;
-  top: 200px;
+  top: 2000px;
   bottom: 30px;
   -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
@@ -8,12 +8,18 @@
 }
 
   .pending-accession-list.compressed {
+    top: 120px;
+    bottom: 0px;
     left: 0;
     width: 30px;
     background: #fff;
     -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    position: sticky;
+    height: calc(100vh - 230px);
+    float: left;
+    color: #fff;
   }
 
   .pending-accession-list .content {

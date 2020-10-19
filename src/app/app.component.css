@@ -5,16 +5,6 @@
   overflow: hidden;
 }
 
-.header {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 80px;
-  width: 100%;
-  background: #929292;
-  z-index: -1;
-}
-
 .main-content {
   width: 100%;
 }

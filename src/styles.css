@@ -12,9 +12,13 @@ body {
   background: #f6f7f8;
 }
 
-button:focus {
-  outline: 0;
+button {
+  color: inherit;
 }
+
+  button:focus {
+    outline: 0;
+  }
 
 .nils-button,
 .mat-button-base.nils-button {
@@ -59,12 +63,15 @@ button:focus {
   padding-top: 80px;
   color: #929292;
   position: relative;
+  overflow: auto;
 }
 
   .main-content .content-container .header {
     position: absolute;
     top: 0;
     color: #fff;
+    background: #929292;
+    width: -webkit-fill-available;
   }
 
   .main-content .content-container .header,
@@ -95,10 +102,16 @@ button:focus {
     height: calc(100% - 190px);
     width: calc(100% - 50px);
     margin: 0 30px 30px 20px;
+  }
+
+  .mat-tab-group .mat-tab-body-wrapper,
+  .main-content .content-container .content {
+    min-height: calc(100vh - 280px);
     background: #fff;
     -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    margin-bottom: 30px;
   }
 
 .option {

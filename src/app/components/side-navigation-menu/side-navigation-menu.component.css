@@ -137,6 +137,7 @@
 
   .side-nav-menu .company-logo-img {
     height: 30px;
+    width: auto;
   }
 
   .side-nav-menu .company-logo-text {
