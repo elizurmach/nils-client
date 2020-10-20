@@ -1,0 +1,20 @@
+<div class="field-container nx-file-management">
+  <mat-form-field [formGroup]="group" class="field">
+    <input matInput [formControlName]="field.name" [(ngModel)]="field.value" style="display: none" />
+    <input style="display: none" type="file" #hiddenfileinput>
+    <button mat-button type="button" button mat-raised-button class="nils-button" (click)="toggleDropDown()">
+      <span class="button-text">{{labels[0] ? labels[0] : field.label}}</span>
+      <mat-icon *ngIf="icons[0]" class="button-img" svgIcon="{{icons[0]}}"></mat-icon>
+    </button>
+    <div class="drop-down-list">
+      <button mat-button type="button" button mat-raised-button class="nils-button" (click)="hiddenfileinput.click()">
+        <span class="button-text">{{labels[1] ? labels[1] : field.label}}</span>
+        <mat-icon *ngIf="icons[1]" class="button-img" svgIcon="{{icons[1]}}"></mat-icon>
+      </button>
+      <button mat-button type="button" button mat-raised-button class="nils-button" (click)="manageFiles()">
+        <span class="button-text">{{labels[2] ? labels[2] : field.label}}</span>
+        <mat-icon *ngIf="icons[2]" class="button-img" svgIcon="{{icons[2]}}"></mat-icon>
+      </button>
+    </div>
+  </mat-form-field>
+</div>

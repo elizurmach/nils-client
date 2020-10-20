@@ -30,6 +30,7 @@ import { FileComponent } from './entry-components/file/file.component';
 import { TextAreaComponent } from './entry-components/text-area/text-area.component';
 import { AutocompleteComponent } from './entry-components/autocomplete/autocomplete.component';
 import { NxFieldSetComponent } from './nx-field-set/nx-field-set.component';
+import { FileManagementComponent } from './entry-components/file-management/file-management.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NxFieldSetComponent } from './nx-field-set/nx-field-set.component';
     FileComponent,
     TextAreaComponent,
     AutocompleteComponent,
-    NxFieldSetComponent
+    NxFieldSetComponent,
+    FileManagementComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ import { NxFieldSetComponent } from './nx-field-set/nx-field-set.component';
     FileComponent,
     TextAreaComponent,
     AutocompleteComponent,
-    NxFieldSetComponent
+    NxFieldSetComponent,
+    FileManagementComponent
   ],
   bootstrap: [NxFormComponent]
 })

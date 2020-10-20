@@ -7,6 +7,7 @@ import { FieldConfig } from "../../model/field-config";
   templateUrl: './file.component.html',
   styleUrls: ['./file.component.css']
 })
+
 export class FileComponent implements OnInit {
   field: FieldConfig;
   group: FormGroup;

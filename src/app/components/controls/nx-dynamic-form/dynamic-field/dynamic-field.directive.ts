@@ -11,6 +11,7 @@ import { FileComponent } from '../entry-components/file/file.component';
 import { TextAreaComponent } from '../entry-components/text-area/text-area.component';
 import { AutocompleteComponent } from '../entry-components/autocomplete/autocomplete.component';
 import { NxFieldSetComponent } from '../nx-field-set/nx-field-set.component';
+import { FileManagementComponent } from '../entry-components/file-management/file-management.component';
 
 const componentMapper = {
   autocomplete: AutocompleteComponent,
@@ -20,7 +21,8 @@ const componentMapper = {
   checkbox: CheckboxComponent,
   radiobutton: RadiobuttonComponent,
   file: FileComponent,
-  textarea: TextAreaComponent
+  textarea: TextAreaComponent,
+  filemanagement: FileManagementComponent
 };
 @Directive({
   selector: "[dynamicField]"

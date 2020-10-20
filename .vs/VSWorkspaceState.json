@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\samples",
-    "\\src\\app\\services",
-    "\\src\\assets",
-    "\\src\\assets\\images",
-    "\\src\\assets\\images\\icons",
-    "\\src\\environments"
+    "\\src\\app\\components\\controls",
+    "\\src\\app\\components\\controls\\nx-dynamic-form",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\file",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\file-management",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\select"
   ],
-  "SelectedNode": "\\src\\environments\\environment.ts",
+  "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\file-management\\file-management.component.html",
   "PreviewInSolutionExplorer": false
 }
