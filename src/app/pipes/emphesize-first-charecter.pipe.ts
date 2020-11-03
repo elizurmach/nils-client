@@ -9,6 +9,6 @@ export class EmphesizeFirstCharecter implements PipeTransform {
     let str = value.toString();
     let firstCharecter = str.substring(0, 1);
     let restOfStr = str.substring(1);
-    return `<span class="emphesize">${firstCharecter}</span><span class="normal">${restOfStr}</span>`;
+    return `<span class="emphesize">${firstCharecter}</span><span class="normal">${restOfStr}®</span>`;
   }
 }

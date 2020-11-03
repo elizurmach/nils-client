@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-side-navigation-menu',
@@ -7,6 +8,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./side-navigation-menu.component.css']
 })
 export class SideNavigationMenuComponent implements OnInit {
+
+  @Input() user: User;
 
   public resources = environment.resources;
   public userName: string;
@@ -17,8 +20,8 @@ export class SideNavigationMenuComponent implements OnInit {
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
-    this.userName = 'Tal Gadish';
-    this.lastLogin = new Date();
+    this.userName = this.user.displayName ? this.user.displayName : this.user.userName;
+    this.lastLogin = this.user.lastLogin;
     this.element = this.elementRef.nativeElement.querySelector('.side-nav-menu');
   }
 
@@ -30,10 +33,12 @@ export class SideNavigationMenuComponent implements OnInit {
   }
 
   navLinks = [
-    { label: this.resources.patientAccessioning, path: 'new-accession', imgPath: 'patient' },
-    { label: this.resources.samples, path: 'samples', imgPath: 'samples' },
-    { label: this.resources.audit, path: 'audit', imgPath: 'audit' },
-    { label: this.resources.sampleStatus, path: 'sampleStatus', imgPath: 'tracking' },
-    { label: this.resources.labDirectorReport, path: 'labDirectorReport', imgPath: 'report' }
+    { label: this.resources.createNewAccession, path: 'new-accession' },
+    { label: this.resources.pendingAccessions, path: 'pending-accessions-list' },
+    { label: this.resources.QaAccession, path: 'qa-accession' },
+    { label: this.resources.samples, path: 'samples' },
+    { label: this.resources.audit, path: 'audit' },
+    { label: this.resources.sampleStatus, path: 'sampleStatus' },
+    { label: this.resources.labDirectorReport, path: 'labDirectorReport' }
   ];
 }

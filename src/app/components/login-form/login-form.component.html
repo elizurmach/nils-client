@@ -1,0 +1,26 @@
+<div class="login-form-container">
+  <div class="header">
+    <div class="greeting">{{resources.greeting}}</div>
+    <mat-icon class="app-logo" svgIcon="nils_logo"></mat-icon>
+  </div>
+  <form class="login-form" [formGroup]="formGroup">
+    <mat-form-field>
+      <input matInput formControlName="userName" placeholder="{{resources.userName}}" type="text"
+             [(ngModel)]="loginInfo.userName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="password" placeholder="{{resources.password}}" type="password"
+             [(ngModel)]="loginInfo.password">
+    </mat-form-field>
+    <mat-checkbox formControlName="remember">{{resources.rememberUser}}</mat-checkbox>
+    <div class="button-pane">
+      <button type="button" button mat-raised-button class="nils-button" (click)="onSignInClick()">
+        {{resources.signIn}}
+      </button>
+    </div>
+  </form>
+  <div class="footer">
+    <mat-icon class="company-logo" svgIcon="nucleix_logo"></mat-icon>
+    <div class="copyright">{{resources.copyright}}</div>
+  </div>
+</div>

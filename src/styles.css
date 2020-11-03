@@ -57,6 +57,43 @@ button {
     line-height: initial;
   }
 
+.drop-down-button {
+  display: inline-block;
+  position: relative;
+}
+
+  .mat-select-panel .nils-button,
+  .drop-down-button .nils-button.mat-button-base {
+    background: inherit;
+    color: inherit;
+    width: 100%;
+  }
+
+  .drop-down-button .drop-down-options-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 100;
+  }
+
+    .drop-down-button .drop-down-options-list.hidden {
+      display: none;
+    }
+
+    .mat-select-panel .nils-button,
+    .drop-down-button .drop-down-options-list .nils-button {
+      border-radius: 0 0 1.5em 1.5em;
+      -webkit-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.5);
+      box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+      margin-bottom: 3px;
+    }
+
+.mat-select-panel-wrap .mat-select-panel {
+  box-shadow: none;
+  background: inherit;
+}
+
 .main-content .content-container {
   height: calc(100% - 80px);
   width: 100%;

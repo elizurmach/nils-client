@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { of } from 'rxjs';
 export class DataService {
 
   lookupValues: { [key: string]: Array<string> } = {
-    'testTypes': ['Blader EpiCheck', 'Lung EpiCheck'],
+    'testTypes': ['Bladder EpiCheck', 'Lung EpiCheck'],
     'containerFaults': ['Container integrity', 'Sample volume', 'Sample color', 'Sample consistency'],
     'states': ['Israel'],
     'cities': ['Jerusalem', 'Tel-Aviv'],
@@ -25,5 +26,16 @@ export class DataService {
 
   createNewAccession(): Promise<number> {
     return this.delay(Math.floor(Math.random() * 1000)).then(() => { return Math.floor(Math.random() * 100000) * Math.floor(Math.random() * 100000); });
+  }
+
+  login(userName: string, password: string): Promise<User> {
+    return this.delay(Math.floor(Math.random() * 1000)).then(() => {
+      return {
+        userName: userName,
+        role: 'system-admin',
+        displayName: 'Scrooge McDuck',
+        lastLogin: new Date()
+      }
+    });
   }
 }

@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./navigation-links.component.css']
 })
 export class NavigationLinksComponent implements OnInit {
-  @Input() navLinks: Array<any>;
+  @Input() navLinks: Array<{ label: string, path:string, icon?:string }>;
 
   constructor() { }
 

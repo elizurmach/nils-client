@@ -1,0 +1,61 @@
+.login-form-container {
+  color: #303030;
+  height: 100%;
+  width: 400px;
+  position: relative;
+}
+
+  .login-form-container .header {
+    height: 300px;
+    width: 100%;
+  }
+
+    .login-form-container .header .greeting {
+      text-align: center;
+      font: normal normal normal 25px/30px Roboto;
+      letter-spacing: 0px;
+      color: #00BCD9;
+      padding-top: 80px;
+    }
+
+    .login-form-container .header .app-logo {
+      height: 180px;
+      width: 100%;
+    }
+
+.login-form {
+  width: 300px;
+  margin: 0 50px;
+}
+
+  .login-form .mat-form-field {
+    width: 100%;
+  }
+
+  .login-form .mat-checkbox {
+    color: #606060;
+  }
+
+  .login-form .button-pane {
+    text-align: center;
+    margin: 30px 0;
+  }
+
+.login-form-container .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+  .login-form-container .footer .company-logo {
+    height: 30px;
+    width: 100%;
+  }
+
+  .login-form-container .footer .copyright {
+    font: normal normal normal 10px/11px Roboto;
+    letter-spacing: 0px;
+    height: 20px;
+  }

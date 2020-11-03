@@ -6,11 +6,11 @@
     "\\src\\app\\components",
     "\\src\\app\\components\\controls",
     "\\src\\app\\components\\controls\\nx-dynamic-form",
-    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components",
-    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\file",
-    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\file-management",
-    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\select"
+    "\\src\\app\\components\\samples",
+    "\\src\\app\\services",
+    "\\src\\assets",
+    "\\src\\assets\\resources"
   ],
-  "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\file-management\\file-management.component.html",
+  "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-dynamic-form.module.ts",
   "PreviewInSolutionExplorer": false
 }

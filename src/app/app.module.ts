@@ -18,9 +18,7 @@ import { SamplesComponent } from './components/samples/samples.component';
 import { NewAccessionComponent } from './components/new-accession/new-accession.component';
 import { PendingAccessionsListComponent } from './components/pending-accessions-list/pending-accessions-list.component';
 import { FooterAlertComponent } from './components/controls/footer-alert/footer-alert.component';
-import { NewAccessionFirstComponent } from './components/new-accession/new-accession-first/new-accession-first.component';
-import { NewAccessionSecondComponent } from './components/new-accession/new-accession-second/new-accession-second.component';
-import { NewAccessionRequisitionFormComponent } from './components/new-accession/new-accession-requisition-form/new-accession-requisition-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +32,7 @@ import { NewAccessionRequisitionFormComponent } from './components/new-accession
     NewAccessionComponent,
     PendingAccessionsListComponent,
     FooterAlertComponent,
-    NewAccessionFirstComponent,
-    NewAccessionSecondComponent,
-    NewAccessionRequisitionFormComponent
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

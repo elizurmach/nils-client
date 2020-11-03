@@ -1,5 +1,6 @@
 <div class="nils-root">
-  <app-side-navigation-menu></app-side-navigation-menu>
+  <app-login-form *ngIf="!user" (onLoginSuccess)="onLogin($event)" (onLoginFailure)="onError($event)"></app-login-form>
+  <app-side-navigation-menu *ngIf="user" [user]="user"></app-side-navigation-menu>
   <div class="main-content">
     <router-outlet></router-outlet>
   </div>
