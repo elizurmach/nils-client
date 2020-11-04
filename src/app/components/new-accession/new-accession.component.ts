@@ -43,19 +43,19 @@ export class NewAccessionComponent implements OnInit, OnChanges {
     this.header = this.resources.createNewAccessionHeader;
     this.title = this.resources.newRequisitionForm;
     this.formGroup = this.formBuilder.group({
-      'acctNumber': ['', Validators.required],
-      'phNumber': ['', Validators.required, Validators.pattern(/^\d{4,20}$/)],
-      'fName': ['', Validators.required],
-      'mName': ['', Validators.maxLength(2)],
-      'lName': ['', Validators.required],
-      'dob': ['', Validators.required],
-      'state': ['', Validators.required],
-      'city': ['', Validators.required],
-      'streetAdd': ['', Validators.required],
-      'zip': ['', Validators.required],
-      'rPhysician': ['', Validators.required],
-      'tPhysician': ['', Validators.required],
-      'npi': ['', Validators.required, Validators.pattern(/^\d{4,20}$/)]
+      'acctNumber': ['', ],
+      'phNumber': ['', ],
+      'fName': ['', ],
+      'mName': ['', ],
+      'lName': ['', ],
+      'dob': ['', ],
+      'state': ['', ],
+      'city': ['', ],
+      'streetAdd': ['', ],
+      'zip': ['', ],
+      'rPhysician': ['', ],
+      'tPhysician': ['', ],
+      'npi': ['', ]
     });
     this.setupStatesAutocompleate();
     this.setupPhysicianAutocompleate();
@@ -155,7 +155,12 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onSaveClick() {
-
+    this.service.createNewAccession(this.accession)
+      .then(res => {
+        this.alert = this.resources.newAccessionSavedAlert + res;
+        console.log('accession number: ' + res);
+        this.accession.accessionNumber = res
+      });
   }
 
   onPrintLabelClick() {

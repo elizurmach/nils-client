@@ -146,7 +146,7 @@
       </div>
     </form>
   </div>
-  <ng-container *ngIf="accession.id">
+  <ng-container *ngIf="accession.accessionNumber">
     <app-footer-alert [level]="'ok'" [message]="alert" [autoClose]="10" (onClose)="onAlertClosed()"></app-footer-alert>
   </ng-container>
 </div>

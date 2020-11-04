@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { User } from '../model/user';
+import { Accession } from '../model/accession';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,18 @@ export class DataService {
     return this.delay(Math.floor(Math.random() * 1000)).then(() => { return of(this.lookupValues[key]).toPromise() });
   }
 
-  createNewAccession(): Promise<number> {
-    return this.delay(Math.floor(Math.random() * 1000)).then(() => { return Math.floor(Math.random() * 100000) * Math.floor(Math.random() * 100000); });
+  createNewAccession(accession: Accession): Promise<string> {
+    return this.http.post(
+      'http://nilspocdataservice-env.eba-2hygmmn6.us-west-2.elasticbeanstalk.com/accessions', accession).toPromise()
+      .then(res => {
+        console.log('post results: ' + res);
+        return this.http.get('http://nilspocdataservice-env.eba-2hygmmn6.us-west-2.elasticbeanstalk.com/accessions/' + res['success']).toPromise()
+          .then(acc => {
+            console.log('get results: ' + acc)
+           return acc['accession'][0]['ACCESSION_NUM'];
+          })
+      });
+    //return this.delay(Math.floor(Math.random() * 1000)).then(() => { return (Math.floor(Math.random() * 100000) * Math.floor(Math.random() * 100000)).toString(); });
   }
 
   login(userName: string, password: string): Promise<User> {

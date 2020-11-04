@@ -73,6 +73,7 @@ export const environment = {
     requiredFields: 'Required fields',
     save: 'Save',
     printLabel:'Print label',
-    saveAndNew:'Save & New'
+    saveAndNew: 'Save & New',
+    newAccessionSavedAlert: 'New accesion saved successfully, accession number = '
   }
 };
