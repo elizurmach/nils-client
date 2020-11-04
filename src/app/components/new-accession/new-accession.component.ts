@@ -16,7 +16,8 @@ export class NewAccessionComponent implements OnInit, OnChanges {
 
   public header: string;
   public title: string;
-  public subTitle: string;
+  public uploadedImages: Array<any>;
+  public showUploadedImages: boolean;
   public alert: string;
   public tests: Array<string>;
   public pictireManagementOptions: Array<string>;
@@ -42,20 +43,21 @@ export class NewAccessionComponent implements OnInit, OnChanges {
     this.accession = {};
     this.header = this.resources.createNewAccessionHeader;
     this.title = this.resources.newRequisitionForm;
+    this.uploadedImages = [];
     this.formGroup = this.formBuilder.group({
-      'acctNumber': ['', ],
-      'phNumber': ['', ],
-      'fName': ['', ],
-      'mName': ['', ],
-      'lName': ['', ],
-      'dob': ['', ],
-      'state': ['', ],
-      'city': ['', ],
-      'streetAdd': ['', ],
-      'zip': ['', ],
-      'rPhysician': ['', ],
-      'tPhysician': ['', ],
-      'npi': ['', ]
+      'acctNumber': ['', [Validators.required]],
+      'phNumber': ['', [Validators.required, Validators.pattern(/^(\d{4,20})$/)]],
+      'fName': ['', [Validators.required]],
+      'mName': ['', [Validators.maxLength(3)]],
+      'lName': ['', [Validators.required]],
+      'dob': ['', [Validators.required]],
+      'state': ['', [Validators.required]],
+      'city': ['', [Validators.required]],
+      'streetAdd': ['', [Validators.required]],
+      'zip': ['', [Validators.required]],
+      'rPhysician': ['', [Validators.required]],
+      'tPhysician': ['', [Validators.required]],
+      'npi': ['', [Validators.required, Validators.pattern(/^(\d{4,20})$/)]]
     });
     this.setupStatesAutocompleate();
     this.setupPhysicianAutocompleate();
@@ -136,13 +138,35 @@ export class NewAccessionComponent implements OnInit, OnChanges {
       fileElement.click();
     }
     else {
-      //todo: show pictures
+      this.showUploadedImages = true;
     }
     this.selectedPictureManagementOption = '';
   }
 
   onPictureUploadChange(event) {
-    //todo: upload file
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.uploadedImages.push(event.target.result);
+      }
+    }
+  }
+
+  getErrorMessage(fieldName: string): string {
+    if (!this.formGroup.controls[fieldName].touched) {
+      return null;
+    }
+    if (this.formGroup.controls[fieldName].errors.required) {
+      return this.resources[fieldName] + this.resources.requiredFieldError;
+    }
+    else if (this.formGroup.controls[fieldName].errors.pattern) {
+      return this.resources.incorrectPatternFieldError + this.resources[fieldName];
+    }
+    else if (fieldName == 'mName' && this.formGroup.controls[fieldName].errors.maxlength) {
+      return this.resources.middleNameLengthError;
+    }
+    return this.resources.genericFieldError;
   }
 
   filter(name: string, allvalues: string[]): string[] {
@@ -155,7 +179,13 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onSaveClick() {
-    this.service.createNewAccession(this.accession)
+    if (this.formGroup.valid) {
+      this.save();
+    }
+  }
+
+  save(): Promise<void> {
+    return this.service.createNewAccession(this.accession)
       .then(res => {
         this.alert = this.resources.newAccessionSavedAlert + res;
         console.log('accession number: ' + res);
@@ -168,7 +198,18 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onNextTestSelected(event) {
+    if (this.formGroup.valid) {
+      this.save().then(() => {
+        this.clear();
+        this.onTestSelected(event);
+      });
+    }
+  }
 
+  clear() {
+    this.accession = {};
+    this.uploadedImages = [];
+    this.formGroup.markAsUntouched();
   }
 
   onAlertClosed() {

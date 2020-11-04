@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\controls",
-    "\\src\\app\\components\\controls\\nx-dynamic-form",
-    "\\src\\app\\components\\samples",
-    "\\src\\app\\services",
-    "\\src\\assets",
-    "\\src\\assets\\resources"
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\entry-components\\select",
+    "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-field-set",
+    "\\src\\app\\components\\new-accession",
+    "\\src\\app\\components\\pending-accessions-list",
+    "\\src\\app\\model",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\controls\\nx-dynamic-form\\nx-dynamic-form.module.ts",
+  "SelectedNode": "\\src\\app\\components\\new-accession\\new-accession.component.ts",
   "PreviewInSolutionExplorer": false
 }

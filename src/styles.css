@@ -63,7 +63,7 @@ button {
 }
 
   .mat-select-panel .nils-button,
-  .drop-down-button .nils-button.mat-button-base {
+  .drop-down-button .nils-button.mat-button-base:not([disabled]) {
     background: inherit;
     color: inherit;
     width: 100%;
