@@ -4,7 +4,6 @@
   <button *ngIf="accession.tOrdered" matButton class="cancel-button" (click)="onCancelClick()">
     <mat-icon class="button-img">close</mat-icon>
   </button>
-  <div *ngIf="subTitle" class="sub-title" [innerHtml]="subTitle"></div>
   <div *ngIf="!accession.tOrdered" class="new-accession-select-test">
     <div class="field-container nx-select">
       <mat-form-field class="full-width margin-top">

@@ -148,7 +148,7 @@ export class NewAccessionComponent implements OnInit, OnChanges {
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event) => {
-        this.uploadedImages.push(event.target.result);
+        this.uploadedImages.push(event.target['result']);
       }
     }
   }

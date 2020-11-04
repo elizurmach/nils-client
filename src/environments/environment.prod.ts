@@ -70,6 +70,10 @@ export const environment = {
     save: 'Save',
     printLabel: 'Print label',
     saveAndNew: 'Save & New',
-    newAccessionSavedAlert: 'New accesion saved successfully, accession number = '
+    newAccessionSavedAlert: 'New accesion saved successfully, accession number = ',
+    requiredFieldError: ' field is mandatory',
+    incorrectPatternFieldError: 'Invalid format for ',
+    middleNameLengthError: 'Please use only initials',
+    genericFieldError: 'Field is invalid'
   }
 };
