@@ -1,11 +1,13 @@
-import { Component, OnInit, OnChanges, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { newAccessionResources } from 'src/assets/resources/new-accession-resources';
 import { DataService } from '../../services/data.service';
 import { EmphesizeFirstCharecter } from '../../pipes/emphesize-first-charecter.pipe';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Accession } from '../../model/accession';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NewAccession } from '../../model/accession';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { AccessionService } from '../../services/accession-service';
+import { getNewAccessionFormGroup, newAccessionErrorMessages } from 'src/assets/resources/form-groups/new-accession.form-group';
 
 @Component({
   selector: 'app-new-accession',
@@ -18,12 +20,12 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   public title: string;
   public uploadedImages: Array<any>;
   public showUploadedImages: boolean;
-  public alert: string;
+  public successMessage: string;
   public tests: Array<string>;
   public pictireManagementOptions: Array<string>;
   public selectedPictureManagementOption: string;
-  public resources = environment.resources;
-  public accession: Accession;
+  public resources = newAccessionResources;
+  public accession: NewAccession;
   public formGroup: FormGroup;
 
   public allStates: string[];
@@ -37,40 +39,27 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   public treatingPhysiciansFilteredOptions: Observable<string[]>;
 
   constructor(private formBuilder: FormBuilder, private testPipe: EmphesizeFirstCharecter,
-    private service: DataService, private changeDetector: ChangeDetectorRef) { }
+    private dataService: DataService, private accessionService: AccessionService,
+    private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.accession = {};
     this.header = this.resources.createNewAccessionHeader;
     this.title = this.resources.newRequisitionForm;
     this.uploadedImages = [];
-    this.formGroup = this.formBuilder.group({
-      'acctNumber': ['', [Validators.required]],
-      'phNumber': ['', [Validators.required, Validators.pattern(/^(\d{4,20})$/)]],
-      'fName': ['', [Validators.required]],
-      'mName': ['', [Validators.maxLength(3)]],
-      'lName': ['', [Validators.required]],
-      'dob': ['', [Validators.required]],
-      'state': ['', [Validators.required]],
-      'city': ['', [Validators.required]],
-      'streetAdd': ['', [Validators.required]],
-      'zip': ['', [Validators.required]],
-      'rPhysician': ['', [Validators.required]],
-      'tPhysician': ['', [Validators.required]],
-      'npi': ['', [Validators.required, Validators.pattern(/^(\d{4,20})$/)]]
-    });
+    this.formGroup = getNewAccessionFormGroup(this.formBuilder);
     this.setupStatesAutocompleate();
     this.setupPhysicianAutocompleate();
-    this.service.getLookupValues('testTypes').then(res => {
+    this.dataService.getLookupValues('testTypes').then(res => {
       this.tests = res;
       this.changeDetector.detectChanges();
     });
-    this.pictireManagementOptions = [this.resources.uploadPictures, this.resources.viewPictures];
+    this.pictireManagementOptions = [this.resources.formLabels.uploadPictures, this.resources.formLabels.viewPictures];
     this.initializeComponent();
   }
 
   setupStatesAutocompleate() {
-    this.service.getLookupValues('states').then(states => {
+    this.dataService.getLookupValues('states').then(states => {
       this.allStates = states;
       this.statesFilteredOptions = this.formGroup.get('state').valueChanges.pipe(
         startWith(),
@@ -81,7 +70,7 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   setupCityAutocompleate() {
-    this.service.getLookupValues('cities;' + this.accession.state).then(cities => {
+    this.dataService.getLookupValues('cities;' + this.accession.state).then(cities => {
       this.allCities = cities;
       this.citiesFilteredOptions = this.formGroup.get('city').valueChanges.pipe(
         startWith(),
@@ -92,7 +81,7 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   setupPhysicianAutocompleate() {
-    this.service.getLookupValues('physicians').then(names => {
+    this.dataService.getLookupValues('physicians').then(names => {
       this.allPhysicians = names;
       this.referringPhysiciansFilteredOptions = this.formGroup.get('rPhysician').valueChanges.pipe(
         startWith(),
@@ -133,7 +122,7 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onManagePicturesSelected() {
-    if (this.selectedPictureManagementOption == this.resources.uploadPictures) {
+    if (this.selectedPictureManagementOption == this.resources.formLabels.uploadPictures) {
       let fileElement = document.getElementById('hiddenfileinput') as HTMLElement;
       fileElement.click();
     }
@@ -145,10 +134,12 @@ export class NewAccessionComponent implements OnInit, OnChanges {
 
   onPictureUploadChange(event) {
     if (event.target.files && event.target.files[0]) {
+      let fileName = event.target.files[0].name;
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event) => {
         this.uploadedImages.push(event.target['result']);
+        this.successMessage = fileName + this.resources.messages.fileUploaded;
       }
     }
   }
@@ -157,16 +148,17 @@ export class NewAccessionComponent implements OnInit, OnChanges {
     if (!this.formGroup.controls[fieldName].touched) {
       return null;
     }
-    if (this.formGroup.controls[fieldName].errors.required) {
-      return this.resources[fieldName] + this.resources.requiredFieldError;
+    if (this.formGroup.controls[fieldName] &&
+      this.formGroup.controls[fieldName].errors) {
+      for (let err in this.formGroup.controls[fieldName].errors) {
+        if (err &&
+          newAccessionErrorMessages[fieldName] &&
+          newAccessionErrorMessages[fieldName][err]) {
+          return newAccessionErrorMessages[fieldName][err];
+        }
+      }
     }
-    else if (this.formGroup.controls[fieldName].errors.pattern) {
-      return this.resources.incorrectPatternFieldError + this.resources[fieldName];
-    }
-    else if (fieldName == 'mName' && this.formGroup.controls[fieldName].errors.maxlength) {
-      return this.resources.middleNameLengthError;
-    }
-    return this.resources.genericFieldError;
+    return this.resources.messages.genericFieldError;
   }
 
   filter(name: string, allvalues: string[]): string[] {
@@ -179,15 +171,15 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onSaveClick() {
-    if (this.formGroup.valid) {
+    //if (this.formGroup.valid) {
       this.save();
-    }
+    //}
   }
 
   save(): Promise<void> {
-    return this.service.createNewAccession(this.accession)
+    return this.accessionService.createNewAccession(this.accession)
       .then(res => {
-        this.alert = this.resources.newAccessionSavedAlert + res;
+        this.successMessage = this.resources.messages.newAccessionSavedAlert + res;
         console.log('accession number: ' + res);
         this.accession.accessionNumber = res
       });
@@ -198,12 +190,12 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onNextTestSelected(event) {
-    if (this.formGroup.valid) {
+    //if (this.formGroup.valid) {
       this.save().then(() => {
         this.clear();
         this.onTestSelected(event);
       });
-    }
+    //}
   }
 
   clear() {
@@ -213,6 +205,6 @@ export class NewAccessionComponent implements OnInit, OnChanges {
   }
 
   onAlertClosed() {
-
+    this.successMessage = ''
   }
 }

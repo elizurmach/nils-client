@@ -1,4 +1,122 @@
-<div class="pending-accession-list compressed">
-  <div class="content">
+<div class="pending-accession-list content-container">
+  <div class="header">{{header}}</div>
+  <div class="filters-container">
+    <mat-form-field class="pending-accession-filter-input">
+      <mat-label>{{resources.filter}}</mat-label>
+      <input matInput (keyup)="applyFilter($event)">
+    </mat-form-field>
+  </div>
+  <div class="pending-aaccession-list-table">
+    <mat-table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell [ngStyle]="{ 'flex': 1 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.id}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 1 }"
+                  mat-cell *matCellDef="let element">
+          {{element.id}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="sampleNumber">
+        <mat-header-cell [ngStyle]="{ 'flex': 2 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.sample}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 2 }"
+                  mat-cell *matCellDef="let element">
+          {{element.sampleNumber}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="pName">
+        <mat-header-cell [ngStyle]="{ 'flex': 3 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.pName}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 3 }"
+                  mat-cell *matCellDef="let element">
+          {{element.pName}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell [ngStyle]="{ 'flex': 2 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.status}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 2 }"
+                  mat-cell *matCellDef="let element">
+          {{element.status}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="accessionNumber">
+        <mat-header-cell [ngStyle]="{ 'flex': 3 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.accessionNumber}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 3 }"
+                  mat-cell *matCellDef="let element">
+          {{element.accessionNumber}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="creationDate">
+        <mat-header-cell [ngStyle]="{ 'flex': 3 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.receivedDate}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 3 }"
+                  mat-cell *matCellDef="let element">
+          {{element.creationDate|dateFormat}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="accessioner">
+        <mat-header-cell [ngStyle]="{ 'flex': 3 }"
+                         mat-header-cell *matHeaderCellDef mat-sort-header mwlResizable>
+          {{resources.accessioner}}
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 3 }"
+                  mat-cell *matCellDef="let element">
+          {{element.accessioner}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="info">
+        <mat-header-cell [ngStyle]="{ 'flex': 3 }"
+                         mat-header-cell *matHeaderCellDef mwlResizable>
+        </mat-header-cell>
+        <mat-cell [ngStyle]="{ 'flex': 3 }"
+                  mat-cell *matCellDef="let element">
+          <div class="info-button-container">
+            <button class="nils-button info" (click)="showInfo(element)">
+              {{resources.info}}
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row mat-row *matRowDef="let row; columns: displayedColumns; let i = index" [ngClass]="i % 2 == 0? 'even': 'odd'"></mat-row>
+
+      <!-- Row shown when there is no matching data. -->
+      <mat-row *matNoDataRow>
+        <mat-cell colspan="7">{{noDataMessage}}</mat-cell>
+      </mat-row>
+    </mat-table>
+    <div *ngIf="dataSource.loading | async" class="progress-bar">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div class="toolbar">
+      <mat-paginator [length]="total"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons>
+      </mat-paginator>
+    </div>
   </div>
 </div>

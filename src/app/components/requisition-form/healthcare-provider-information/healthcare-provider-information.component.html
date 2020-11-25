@@ -1,0 +1,157 @@
+<div class="healthcare-provider-information">
+  <div class="form-title"><span class="step-number">{{stepNumber}}</span>{{resources.title}}</div>
+  <form [formGroup]="formGroup">
+    <ng-template matStepLabel>{{resources.stepName}}</ng-template>
+    <div class="field-set">
+      <div class="field text-field institution-name">
+        <span class="label">{{resources.fields.instName}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instName" type="text" [(ngModel)]="data.instName">
+          <mat-error *ngIf="formGroup.controls['instName'].errors">
+            {{getErrorMessage('instName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field institution-address">
+        <span class="label">{{resources.fields.instAddress}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instAddress" type="text" [(ngModel)]="data.instAddress">
+          <mat-error *ngIf="formGroup.controls['instAddress'].errors">
+            {{getErrorMessage('instAddress')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field institution-city">
+        <span class="label">{{resources.fields.instCity}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instCity" type="text" [(ngModel)]="data.instCity">
+          <mat-error *ngIf="formGroup.controls['instCity'].errors">
+            {{getErrorMessage('instCity')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field text-field institution-state">
+        <span class="label">{{resources.fields.instState}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instState" type="text" [(ngModel)]="data.instState">
+          <mat-error *ngIf="formGroup.controls['instState'].errors">
+            {{getErrorMessage('instState')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field text-field institution-zip">
+        <span class="label">{{resources.fields.instZip}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instZip" type="text" [(ngModel)]="data.instZip">
+          <mat-error *ngIf="formGroup.controls['instZip'].errors">
+            {{getErrorMessage('instZip')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field institution-phone-number">
+        <span class="label">{{resources.fields.instPhoneNumber}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instPhoneNumber" type="text" [(ngModel)]="data.instPhoneNumber">
+          <mat-error *ngIf="formGroup.controls['instPhoneNumber'].errors">
+            {{getErrorMessage('instPhoneNumber')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field institution-fax-number">
+        <span class="label">{{resources.fields.instFaxNumber}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instFaxNumber" type="text" [(ngModel)]="data.instFaxNumber">
+          <mat-error *ngIf="formGroup.controls['instFaxNumber'].errors">
+            {{getErrorMessage('instFaxNumber')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field institution-email">
+        <span class="label">{{resources.fields.instEmail}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instEmail" type="text" [(ngModel)]="data.instEmail">
+          <mat-error *ngIf="formGroup.controls['instEmail'].errors">
+            {{getErrorMessage('instEmail')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field requisitor">
+        <span class="label">{{resources.fields.requisitor}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="requisitor" type="text" [(ngModel)]="data.requisitor">
+          <mat-error *ngIf="formGroup.controls['requisitor'].errors">
+            {{getErrorMessage('requisitor')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field date-field requisition-date">
+        <span class="label">{{resources.fields.reqDate}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="reqDate" type="text" [(ngModel)]="data.reqDate">
+          <mat-error *ngIf="formGroup.controls['reqDate'].errors">
+            {{getErrorMessage('reqDate')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field ordering-physician">
+        <span class="label">{{resources.fields.oPhysician}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="oPhysician" type="text" [(ngModel)]="data.oPhysician">
+          <mat-error *ngIf="formGroup.controls['oPhysician'].errors">
+            {{getErrorMessage('oPhysician')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field npi">
+        <span class="label">{{resources.fields.npi}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="npi" type="text" [(ngModel)]="data.npi">
+          <mat-error *ngIf="formGroup.controls['npi'].errors">
+            {{getErrorMessage('npi')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field authorized-signiture">
+        <span class="label">{{resources.fields.authSigniture}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="authSigniture" type="text" [(ngModel)]="data.authSigniture">
+          <mat-error *ngIf="formGroup.controls['authSigniture'].errors">
+            {{getErrorMessage('authSigniture')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field date-field authentication-date">
+        <span class="label">{{resources.fields.authDate}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="authDate" type="text" [(ngModel)]="data.authDate">
+          <mat-error *ngIf="formGroup.controls['authDate'].errors">
+            {{getErrorMessage('authDate')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+

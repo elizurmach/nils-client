@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../model/user';
+import { loginResources as resources } from 'src/assets/resources/login-resources';
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
   @Output() onLoginFailure = new EventEmitter<any>();
 
   loginInfo: { userName: string, password: string, remember:boolean };
-  resources = environment.resources;
+  resources = resources;
   formGroup: FormGroup;
 
   constructor(private service: DataService, private formBuilder: FormBuilder) { }

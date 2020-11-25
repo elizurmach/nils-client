@@ -39,6 +39,7 @@ export class SideNavigationMenuComponent implements OnInit {
     { label: this.resources.samples, path: 'samples' },
     { label: this.resources.audit, path: 'audit' },
     { label: this.resources.sampleStatus, path: 'sampleStatus' },
+    { label: this.resources.pendingReports, path: 'pending-reports-list' },
     { label: this.resources.labDirectorReport, path: 'labDirectorReport' }
   ];
 }

@@ -1,0 +1,248 @@
+/*
+  # id of element
+  . is a class
+  nothing - is element type
+  [width] every element with this attribute
+  [name=gogo] all element with name ="gogo"
+  *= contains
+  ~ starts with or something like that
+  */
+
+.report-body {
+  width: 100%;
+  height: 100%;
+  border-style: none;
+  background-color: white;
+  color: rgb(7, 3, 51);
+}
+
+.report-header-container {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  height: 12%;
+  background-color: #e5f8fc;
+}
+
+.product_logo {
+  width: 56%;
+  margin-left: 26px;
+}
+
+.nucleix_logo {
+  width: 100%;
+}
+
+/* nested class. if i add ".report-header-container >.vertical-separator" it makes only for direct parent-child*/
+.report-header-container > .vertical-separator {
+  width: 2%;
+  margin: 0;
+}
+
+.vertical-separator {
+  width: 2px;
+  background-color: #00b8de;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.report-header-product-logo {
+  display: flex;
+  flex-direction: row;
+  width: 66%;
+}
+
+.report-header-nucleix-logo {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  margin-top: 28px;
+}
+
+.report-header-lab-details {
+  width: 40%;
+}
+
+.lab-details-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: -6px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.lab-details {
+  width: 100%;
+  margin-left: 2px;
+}
+
+.report-body-container {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+.information-block {
+  width: 44%;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+.report-row,
+.report-results-row,
+.comment-row {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.report-results-row {
+  border: #00b8de;
+  border-width: 2px;
+  border-style: solid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 86%;
+  padding: 18px;
+  border-radius: 20px;
+  margin-left: 6px;
+}
+
+.lab-detail-row,
+.information-row,
+.information-empty-row,
+.reference-content {
+  display: flex;
+  width: 100%;
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.information-row {
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.information-empty-row {
+  margin-bottom: 10px;
+}
+
+.reference-content {
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* common - use "," */
+.information-input,
+.information-label,
+.information-label-signature,
+.results-label,
+.report-header2-var,
+.report-header2,
+.report-header,
+.results-reference,
+.results-reference-value,
+.disclaimer,
+.block-header {
+  font-style: italic;
+  font-weight: bold;
+  flex-direction: column;
+  margin-left: 6px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.disclaimer {
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.report-header {
+  font-size: 28px;
+  font-style: normal;
+}
+
+.report-header2 {
+  font-size: 16px;
+}
+
+.report-header2-var {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.information-label {
+  font-size: 14px;
+}
+
+.information-input {
+  font-size: 12px;
+  font-weight: normal;
+  text-align: justify;
+}
+
+.block-header {
+  font-size: 16px;
+  font-style: normal;
+  margin-bottom: 10px;
+}
+
+.information-label-signature {
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.results-label,
+.results-interpretation,
+.results-reference,
+.secondary-header,
+.results-reference-value {
+  font-size: 18px;
+  font-style: normal;
+}
+
+.results-reference {
+  font-weight: normal;
+}
+
+.results-reference-value {
+  font-weight: bolder;
+}
+
+.results-interpretation {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.secondary-header {
+  font-size: 15px;
+}
+
+[reference-value='Positive'] {
+  color: #c10909;
+}
+
+[reference-value='Negative'] {
+  color: #00a822;
+}
+
+.comment-row {
+  border: #000000;
+  border-width: 1px;
+  border-style: solid;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 86%;
+  padding: 18px;
+  border-radius: 20px;
+  margin-left: 6px;
+}

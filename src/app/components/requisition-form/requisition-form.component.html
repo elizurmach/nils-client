@@ -1,0 +1,65 @@
+<div class="requisition-form content-container">
+  <div class="header">{{header}}</div>
+  <div class="tool-bar">
+    <div class="title-area">
+      <div class="title">{{title}}</div>
+      <div class="sub-title" [innerHtml]="subTitle"></div>
+    </div>
+    <div class="tracker-container"></div>
+    <button matButton class="cancel-button" (click)="onCloseClick()">
+      <mat-icon class="button-img">close</mat-icon>
+    </button>
+  </div>
+  <mat-horizontal-stepper *ngIf="requisitionForm" labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="patientInfoFormGroup">
+      <div class="step-content">
+        <div class="step-left"></div>
+        <div class="step-center patient-information">
+          <app-patient-information [formGroup]="patientInfoFormGroup" [data]="requisitionForm.pInfo" [stepNumber]="1"></app-patient-information>
+        </div>
+        <div class="step-right">
+          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step class="step" [stepControl]="healthcareProviderFormGroup">
+      <div class="step-content">
+        <div class="step-left">
+          <button class="nils-button" mat-button matStepperPrevious>{{resources.back}}</button>
+        </div>
+        <div class="step-center healthcare-provider-information">
+          <app-healthcare-provider-information [formGroup]="healthcareProviderFormGroup" [data]="requisitionForm.hcpInfo" [stepNumber]="2"></app-healthcare-provider-information>
+        </div>
+        <div class="step-right">
+          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step class="step" [stepControl]="specimenInfoFormGroup">
+      <div class="step-content">
+        <div class="step-left">
+          <button class="nils-button" mat-button matStepperPrevious>{{resources.back}}</button>
+        </div>
+        <div class="step-center specimen-information">
+          <app-specimen-information [formGroup]="specimenInfoFormGroup" [data]="requisitionForm.specInfo" [stepNumber]="3"></app-specimen-information>
+        </div>
+        <div class="step-right">
+          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step class="step" [stepControl]="billingInfoFormGroup">
+      <div class="step-content">
+        <div class="step-left">
+          <button class="nils-button" mat-button matStepperPrevious>{{resources.back}}</button>
+        </div>
+        <div class="step-center specimen-information">
+          <app-billing-information [formGroup]="billingInfoFormGroup" [data]="requisitionForm.billInfo" [stepNumber]="4"></app-billing-information>
+        </div>
+        <div class="step-right">
+          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

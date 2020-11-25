@@ -1,0 +1,189 @@
+<div class="report-body">
+  <div class="report-header-container">
+    <div class="vertical-separator">
+    </div>
+    <div class="report-header-product-logo">
+      <img class="product_logo" src="../assets/images/icons/bladder_epicheck.svg" alt="" />
+    </div>
+    <div class="report-header-lab-details">
+      <div class="report-header-nucleix-logo">
+        <img class="nucleix_logo" src="../assets/images/icons/nucleix_logo.svg" alt="" />
+      </div>
+      <div class="lab-details-container">
+        <div class="vertical-separator">
+        </div>
+        <div class="lab-details">
+          <span class="lab-detail-row">{{resources.labs.sanDiego.address}}</span>
+          <span class="lab-detail-row">{{resources.labs.sanDiego.phone}}</span>
+          <!-- <span class="lab-detail-row">{{resources.labs.sanDiego.fax}}</span> -->
+          <span class="lab-detail-row">{{resources.labs.sanDiego.email}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="reportRecord" class="report-body-container">
+    <div class="report-row">
+      <div class="report-header">{{resources.reportHeader}}</div>
+      <div class="vertical-separator"></div>
+      <div class="report-header">{{reportRecord.firstName}} {{reportRecord.lastName}}</div>
+    </div>
+    <div class="report-row">
+      <div class="report-header2">{{resources.patientInformation.dateOfBirth}}</div>
+      <div class="report-header2-var">
+        {{reportRecord.birthDate | date}} ({{reportRecord.ageInYears}}
+        {{resources.patientInformation.years}})
+      </div>
+      <div class="vertical-separator"> </div>
+      <div class="report-header2">{{resources.patientInformation.medicalRecordNumber}}</div>
+      <div class="report-header2-var">{{reportRecord.medicalRecordNumber}}</div>
+      <div class="vertical-separator"> </div>
+      <div class="report-header2">{{resources.patientInformation.gender}}</div>
+      <div class="report-header2-var">{{reportRecord.gender}}</div>
+    </div>
+    <div class="report-row">
+      <div class="vertical-separator"></div>
+      <div class="information-block">
+        <span class="information-row">
+          <div class="block-header">{{resources.specimenInformation.specimen}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.specimenInformation.type}}</div>
+          <div class="information-input">{{reportRecord.sampleType}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.specimenInformation.specimenCollection}}</div>
+          <div class="information-input">{{reportRecord.collectionDate | date}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.specimenInformation.specimenReceived}}</div>
+          <div class="information-input">{{reportRecord.arrivalDate | date :'medium'}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.specimenInformation.reportDate}}</div>
+          <div class="information-input">{{reportRecord.testDate | date:'medium'}}</div>
+        </span>
+      </div>
+      <div class="vertical-separator"></div>
+      <div class="information-block">
+        <span class="information-row">
+          <div class="block-header">{{resources.referringPhysicianInformation.referringPhysician}}</div>
+          <div class="vertical-separator"></div>
+          <div class="secondary-header">{{reportRecord.referringPhysician}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.referringPhysicianInformation.instituteAddress}}</div>
+          <div class="information-input">{{reportRecord.sourceInstitute}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.referringPhysicianInformation.phone}}</div>
+          <div class="information-input">{{reportRecord.phoneNumber}}</div>
+        </span>
+        <span class="information-empty-row"></span>
+        <span class="information-row">
+          <div class="information-label">{{resources.specimenInformation.accessionId}}</div>
+          <div class="information-input">{{reportRecord.accessionId}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">{{resources.referringPhysicianInformation.icdCode}}</div>
+          <div class="information-input">{{reportRecord.icdCode}}</div>
+        </span>
+      </div>
+    </div>
+
+    <div class="report-results-row">
+      <div class="results-label">{{resources.testResults.bladderEpiCheck}}</div>
+      <div class="vertical-separator"></div>
+      <div class="results-interpretation" [attr.reference-value]="reportRecord.interpretation">
+        {{reportRecord.interpretation}}
+      </div>
+      <div class="vertical-separator"></div>
+      <div class="results-label">{{resources.testResults.epiScore}}</div>
+      <div class="results-reference">{{reportRecord.epiScore}}</div>
+      <div class="vertical-separator"></div>
+      <div class="results-reference">{{resources.testResults.reference}}</div>
+      <div class="results-reference-value" [attr.reference-value]="reportRecord.reference">
+        {{reportRecord.reference}}
+      </div>
+    </div>
+
+    <div class="report-row">
+      <div class="information-block">
+        <span class="information-row">
+          <div class="information-label">{{resources.indicationForUseHeader}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-input">{{resources.indicationForUse}}</div>
+        </span>
+      </div>
+      <div class="information-block">
+        <span class="information-row">
+          <div class="information-label">{{resources.interpretationGuidelinesHeader}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-input">{{resources.interpretationGuidelines}}</div>
+        </span>
+      </div>
+    </div>
+
+    <div class="report-row">
+      <div class="information-block">
+        <span class="information-row">
+          <div class="information-label">{{resources.sensitivitySpecificityHeader}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-input">{{resources.sensitivitySpecificity}}</div>
+        </span>
+      </div>
+    </div>
+    <div class="comment-row">
+      <div class="block-header">{{resources.comments}}</div>
+      <div class="information-label">{{reportRecord.comments}}</div>
+    </div>
+
+    <div class="report-row">
+      <div class="vertical-separator"></div>
+      <div class="information-block">
+        <span class="information-row">
+          <div class="block-header">{{resources.labDirector}}</div>
+          <div class="vertical-separator"></div>
+          <div class="information-label">{{reportRecord.labDirectorName}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">
+            {{resources.signature}}
+          </div>
+          <mat-form-field *ngIf="!reportRecord.labDirectorSignature">
+            <input matInput type="text" (click)="addSignitureClick()">
+          </mat-form-field>
+          <div *ngIf="reportRecord.labDirectorSignature" class="information-label-signature">
+            <img [src]="reportRecord.labDirectorSignature" alt="" />
+          </div>
+        </span>
+      </div>
+
+    </div>
+    <div class="report-row">
+      <div class="vertical-separator"></div>
+      <div class="information-block">
+        <span class="information-row">
+          <div class="block-header">{{resources.referecne}}</div>
+          <div class="vertical-separator"></div>
+          <div class="secondary-header">{{resources.publications}}</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">1.</div>
+          <div class="reference-content">Bla, bla bla bla bla bla bla</div>
+        </span>
+        <span class="information-row">
+          <div class="information-label">2.</div>
+          <div class="reference-content">Waka waka baka, itchi tapeng</div>
+        </span>
+      </div>
+    </div>
+    <div class="report-row">
+      <div class="disclaimer">{{resources.disclaimer}}</div>
+      <div class="disclaimer">{{resources.disclaimerText}}</div>
+    </div>
+  </div>
+</div>

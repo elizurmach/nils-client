@@ -1,0 +1,13 @@
+.pending-accession-list.content-container {
+  display: inline-block;
+}
+
+.pending-aaccession-list-table {
+  padding: 0 50px;
+  display: inline-block;
+  width: calc(100% - 100px);
+}
+
+.filters-container {
+  padding: 0 50px;
+}

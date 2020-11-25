@@ -1,0 +1,143 @@
+<div class="patient-information">
+  <div class="form-title"><span class="step-number">{{stepNumber}}</span>{{resources.title}}</div>
+  <form [formGroup]="formGroup">
+    <ng-template matStepLabel>{{resources.stepName}}</ng-template>
+    <div class="field-set">
+      <div class="field text-field last-name">
+        <span class="label">{{resources.fields.lName}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="lName" type="text" [(ngModel)]="data.lName">
+          <mat-error *ngIf="formGroup.controls['lName'].errors">
+            {{getErrorMessage('lName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field first-name">
+        <span class="label">{{resources.fields.fName}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="fName" type="text" [(ngModel)]="data.fName">
+          <mat-error *ngIf="formGroup.controls['fName'].errors">
+            {{getErrorMessage('fName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field text-field middle-name">
+        <span class="label">{{resources.fields.mName}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="mName" type="text" [(ngModel)]="data.mName">
+          <mat-error *ngIf="formGroup.controls['mName'].errors">
+            {{getErrorMessage('mName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field address">
+        <span class="label">{{resources.fields.address}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="address" type="text" [(ngModel)]="data.address">
+          <mat-error *ngIf="formGroup.controls['address'].errors">
+            {{getErrorMessage('address')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field city">
+        <span class="label">{{resources.fields.city}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="city" type="text" [(ngModel)]="data.city">
+          <mat-error *ngIf="formGroup.controls['city'].errors">
+            {{getErrorMessage('city')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field text-field state">
+        <span class="label">{{resources.fields.state}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="state" type="text" [(ngModel)]="data.state">
+          <mat-error *ngIf="formGroup.controls['state'].errors">
+            {{getErrorMessage('state')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field text-field zip">
+        <span class="label">{{resources.fields.zip}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="zip" type="text" [(ngModel)]="data.zip">
+          <mat-error *ngIf="formGroup.controls['zip'].errors">
+            {{getErrorMessage('zip')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field date-field date-of-birth">
+        <span class="label">{{resources.fields.dob}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="dob" type="text" [(ngModel)]="data.dob">
+          <mat-error *ngIf="formGroup.controls['dob'].errors">
+            {{getErrorMessage('dob')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field phone-number">
+        <span class="label">{{resources.fields.phNumber}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="phNumber" type="text" [(ngModel)]="data.phNumber">
+          <mat-error *ngIf="formGroup.controls['phNumber'].errors">
+            {{getErrorMessage('phNumber')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field radio-field gender">
+        <span class="label">{{resources.fields.gender}}{{resources.formLabels.asterisk}}</span>
+        <input matInput formControlName="gender" [(ngModel)]="data.gender" style="display:none">
+        <mat-checkbox *ngFor="let item of genders" [checked]="data.gender === item" (change)="genderChange($event,item)" class="label">
+          {{item}}
+        </mat-checkbox>
+        <mat-error *ngIf="formGroup.controls['gender'].errors">
+          {{getErrorMessage('gender')}}
+        </mat-error>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field medical-record-number">
+        <span class="label">{{resources.fields.medicalRecordNumber}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="medicalRecordNumber" type="text" [(ngModel)]="data.medicalRecordNumber">
+          <mat-error *ngIf="formGroup.controls['medicalRecordNumber'].errors">
+            {{getErrorMessage('medicalRecordNumber')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field icd-codes">
+        <span class="label">{{resources.fields.icdCodes}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="icdCodes" type="text" [(ngModel)]="data.icdCodes">
+          <mat-error *ngIf="formGroup.controls['icdCodes'].errors">
+            {{getErrorMessage('icdCodes')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field is-repeat-patient">
+        <mat-checkbox formControlName="isRepeatPatient" [(ngModel)]="data.isRepeatPatient" class="label">
+          {{resources.fields.isRepeatPatient}}{{resources.formLabels.asterisk}}
+        </mat-checkbox>
+        <mat-error *ngIf="formGroup.controls['isRepeatPatient'].errors">
+          {{getErrorMessage('isRepeatPatient')}}
+        </mat-error>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>
+    <p class="title">{{data.title}}</p>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+</h1>
+<div mat-dialog-content>
+    <p>{{data.body | json}}</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.input">
+    </mat-form-field>
+</div>
+<div>
+    <button mat-button class="btn btn-secondary btn-sm" (click)="onDismiss()">
+        <img *ngIf="data.cancelIcon" class="button-img icon-dark" src="{{data.cancelIcon}}" />
+        {{data.cancelText}}
+    </button>
+    <button mat-button class="btn btn-secondary btn-sm" [mat-dialog-close]="data.input" cdkFocusInitial>
+        <img *ngIf="data.confirmIcon" class="button-img icon-dark" src="{{data.confirmIcon}}" />
+        {{data.confirmText}}
+    </button>
+</div>

@@ -57,6 +57,14 @@ button {
     line-height: initial;
   }
 
+.mat-cell .nils-button {
+  background: #fff;
+  color: inherit;
+  width: 10em;
+  min-width: 10em;
+  margin: 0 20px 0 40px;
+}
+
 .drop-down-button {
   display: inline-block;
   position: relative;
@@ -170,6 +178,128 @@ button {
 
 .normal {
   display: block;
+}
+
+.mat-header-row .mat-header-cell {
+  color: #a4a4a4;
+  font-style: italic;
+}
+
+.mat-row.even {
+  background: #e4e4e4;
+}
+
+.requisition-form .mat-horizontal-stepper-header-container {
+  position: absolute;
+  top: 80px;
+  left: 30%;
+  right: 10%;
+}
+
+.requisition-form .mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+  padding: 0;
+  height: initial;
+  border-radius: 50% 50% 20% 20%;
+}
+
+  .requisition-form .mat-stepper-label-position-bottom .mat-stepper-horizontal-line,
+  .requisition-form .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after,
+  .requisition-form .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before {
+    top: 48px;
+  }
+
+  .requisition-form .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-icon {
+    margin: 24px;
+    height: 40px;
+    width: 40px;
+    background: inherit;
+    color: #a4a4a4;
+    border: 3px solid #a4a4a4;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+.requisition-form .mat-horizontal-stepper-header .mat-step-icon.mat-step-icon-selected {
+  background: inherit;
+  color: #3fcce2;
+  border-color: #3fcce2;
+}
+
+.requisition-form .mat-stepper-label-position-bottom .mat-step-label {
+  position: absolute;
+  top: 60px;
+  color: #3fcce2;
+}
+
+.requisition-form .mat-horizontal-content-container {
+  display: inline;
+}
+
+.requisition-form .mat-form-field-infix {
+  width: unset;
+}
+
+.main-content .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.main-content .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: inherit;
+}
+
+.main-content .mat-checkbox-checkmark {
+  fill: #000;
+}
+
+.mat-radio-button {
+  margin-right: 10px;
+}
+
+.radio-field .mat-radio-outer-circle {
+  border-radius: 0;
+}
+
+.radio-field .mat-radio-label {
+  color: #000;
+}
+
+.radio-field .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle,
+.radio-field .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+  border-color: #000;
+}
+
+.radio-field .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+  background-color: inherit;
+  position: relative;
+  text-align: center;
+  height: 12px;
+  margin-top: 4px;
+}
+
+  .radio-field .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 70%;
+    width: 50%;
+    background-color: #000;
+    transform: skew(0deg, 40deg);
+  }
+
+  .radio-field .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #000;
+    transform: skew(0deg, -60deg);
+  }
+  
+
+
+
+.radio-field .mat-form-field .mat-form-field-underline {
+  display: none;
 }
 
 /*TO DO: move to nx-dynamic-form module*/

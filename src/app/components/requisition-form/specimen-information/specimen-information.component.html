@@ -1,0 +1,73 @@
+<div class="specimen-information">
+  <div class="form-title"><span class="step-number">{{stepNumber}}</span>{{resources.title}}</div>
+  <form [formGroup]="formGroup">
+    <ng-template matStepLabel>{{resources.stepName}}</ng-template>
+    <div class="field-set">
+      <div class="field text-field institute-speciment-id">
+        <span class="label">{{resources.fields.instSpecimentId}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="instSpecimentId" type="text" [(ngModel)]="data.instSpecimentId">
+          <mat-error *ngIf="formGroup.controls['instSpecimentId'].errors">
+            {{getErrorMessage('instSpecimentId')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field specimen-type">
+        <span class="label">{{resources.fields.sType}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="sType" type="text" [(ngModel)]="data.sType">
+          <mat-error *ngIf="formGroup.controls['sType'].errors">
+            {{getErrorMessage('sType')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field radio-field specimen-quantity">
+        <span class="label">{{resources.fields.sQuantity}}{{resources.formLabels.asterisk}}</span>
+        <input matInput formControlName="sQuantity" [(ngModel)]="data.sQuantity" style="display:none">
+        <mat-checkbox *ngFor="let item of quantities" [checked]="data.sQuantity === item" (change)="quantityChange($event,item)" class="label">
+          {{item}}
+        </mat-checkbox>
+        <mat-error *ngIf="formGroup.controls['sQuantity'].errors">
+          {{getErrorMessage('sQuantity')}}
+        </mat-error>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field date-field collection-date">
+        <span class="label">{{resources.fields.collectionDate}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="collectionDate" type="text" [(ngModel)]="data.collectionDate">
+          <mat-error *ngIf="formGroup.controls['collectionDate'].errors">
+            {{getErrorMessage('collectionDate')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field time-field collection-time">
+        <span class="label">{{resources.fields.collectionTime}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="collectionTime" type="text" [(ngModel)]="data.collectionDate">
+          <mat-error *ngIf="formGroup.controls['collectionTime'].errors">
+            {{getErrorMessage('collectionTime')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field date-field retrieved-date">
+        <span class="label">{{resources.fields.retrievedDate}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="retrievedDate" type="text" [(ngModel)]="data.retrievedDate">
+          <mat-error *ngIf="formGroup.controls['retrievedDate'].errors">
+            {{getErrorMessage('retrievedDate')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

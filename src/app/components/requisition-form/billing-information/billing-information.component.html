@@ -1,0 +1,59 @@
+<div class="billing-information">
+  <div class="form-title"><span class="step-number">{{stepNumber}}</span>{{resources.title}}</div>
+  <form [formGroup]="formGroup">
+    <ng-template matStepLabel>{{resources.stepName}}</ng-template>
+    <div class="field-set">
+      <div class="field radio-field is-self-pay">
+        <mat-checkbox [checked]="data.isSelfPay" (change)="billingModeChange($event,'Self-Pay')" class="label">
+          {{resources.fields.isSelfPay}}
+        </mat-checkbox>
+        <mat-error *ngIf="formGroup.controls['isSelfPay'].errors">
+          {{getErrorMessage('isSelfPay')}}
+        </mat-error>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field radio-field bill-client">
+        <mat-checkbox [checked]="!data.isSelfPay" (change)="billingModeChange($event,'Bill-Clienty')" class="label">
+          {{resources.fields.billClient}}
+        </mat-checkbox>
+        <mat-error *ngIf="formGroup.controls['billClient'].errors">
+          {{getErrorMessage('billClient')}}
+        </mat-error>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field client-name">
+        <span class="label">{{resources.fields.clientName}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="clientName" type="text" [(ngModel)]="data.clientName">
+          <mat-error *ngIf="formGroup.controls['clientName'].errors">
+            {{getErrorMessage('clientName')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field client-code">
+        <span class="label">{{resources.fields.clientCode}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="clientCode" type="text" [(ngModel)]="data.clientCode">
+          <mat-error *ngIf="formGroup.controls['clientCode'].errors">
+            {{getErrorMessage('clientCode')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="field-set">
+      <div class="field text-field authorization-number">
+        <span class="label">{{resources.fields.authNumber}}{{resources.formLabels.asterisk}}</span>
+        <mat-form-field>
+          <input matInput formControlName="authNumber" type="text" [(ngModel)]="data.authNumber">
+          <mat-error *ngIf="formGroup.controls['authNumber'].errors">
+            {{getErrorMessage('authNumber')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

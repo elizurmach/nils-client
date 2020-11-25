@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
 import { User } from '../model/user';
-import { Accession } from '../model/accession';
+import { Accession, PendingAccession } from '../model/accession';
+import { tap, map } from 'rxjs/operators';
+import { FilterParameters, FiltredResults } from '../model/filter-parameters';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
   lookupValues: { [key: string]: Array<string> } = {
@@ -23,20 +26,6 @@ export class DataService {
 
   getLookupValues(key: string): Promise<Array<string>> {
     return this.delay(Math.floor(Math.random() * 1000)).then(() => { return of(this.lookupValues[key]).toPromise() });
-  }
-
-  createNewAccession(accession: Accession): Promise<string> {
-    return this.http.post(
-      'http://nilspocdataservice-env.eba-2hygmmn6.us-west-2.elasticbeanstalk.com/accessions', accession).toPromise()
-      .then(res => {
-        console.log('post results: ' + res);
-        return this.http.get('http://nilspocdataservice-env.eba-2hygmmn6.us-west-2.elasticbeanstalk.com/accessions/' + res['success']).toPromise()
-          .then(acc => {
-            console.log('get results: ' + acc)
-           return acc['accession'][0]['ACCESSION_NUM'];
-          })
-      });
-    //return this.delay(Math.floor(Math.random() * 1000)).then(() => { return (Math.floor(Math.random() * 100000) * Math.floor(Math.random() * 100000)).toString(); });
   }
 
   login(userName: string, password: string): Promise<User> {

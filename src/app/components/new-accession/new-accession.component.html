@@ -7,7 +7,7 @@
   <div *ngIf="!accession.tOrdered" class="new-accession-select-test">
     <div class="field-container nx-select">
       <mat-form-field class="full-width margin-top">
-        <mat-select placeholder="{{resources.testOrderedLabel}}" (selectionChange)="onTestSelected($event)">
+        <mat-select placeholder="{{resources.accessionFields.tOrdered}}" (selectionChange)="onTestSelected($event)">
           <mat-option *ngFor="let testName of tests" [value]="testName">
             <span class="option" [innerHtml]="testName|empFirst"></span>
           </mat-option>
@@ -19,18 +19,18 @@
     <form class="nils-form" [formGroup]="formGroup">
       <div class="field-set">
         <div class="field-set-caption">
-          <span>{{resources.generalInfo}}</span>
+          <span>{{resources.formLabels.generalInfo}}</span>
           <span *ngIf="accession.accessionNumber">| {{accession.accessionNumber}}</span>
         </div>
         <mat-form-field class="text-field account-number">
-          <input matInput formControlName="acctNumber" placeholder="{{resources.acctNumber}}{{resources.asterisk}}" type="text"
+          <input matInput formControlName="acctNumber" placeholder="{{resources.accessionFields.acctNumber}}{{resources.formLabels.asterisk}}" type="text"
                  [(ngModel)]="accession.acctNumber">
           <mat-error *ngIf="formGroup.controls['acctNumber'].errors">
             {{getErrorMessage('acctNumber')}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="text-field phone-number">
-          <input matInput formControlName="phNumber" placeholder="{{resources.phNumber}}{{resources.asterisk}}" type="text"
+          <input matInput formControlName="phNumber" placeholder="{{resources.accessionFields.phNumber}}{{resources.formLabels.asterisk}}" type="text"
                  [(ngModel)]="accession.phNumber">
           <mat-error *ngIf="formGroup.controls['phNumber'].errors">
             {{getErrorMessage('phNumber')}}
@@ -38,7 +38,7 @@
         </mat-form-field>
         <div class="drop-down-button manage-pictures">
           <button type="button" button mat-raised-button class="nils-button save-and-new" (click)="hiddenpicturemanageselect.toggle()">
-            {{resources.managePictures}}
+            {{resources.formLabels.managePictures}}
             <mat-icon class="button-img" svgIcon="upload_image"></mat-icon>
           </button>
           <mat-select class="hidden-select" [(value)]="selectedPictureManagementOption" #hiddenpicturemanageselect id="hiddenpicturemanageselect" (selectionChange)="onManagePicturesSelected()">
@@ -51,28 +51,28 @@
       </div>
       <div class="field-set">
         <mat-form-field class="text-field first-name">
-          <input matInput formControlName="fName" placeholder="{{resources.fName}}*" type="text"
+          <input matInput formControlName="fName" placeholder="{{resources.accessionFields.fName}}{{resources.formLabels.asterisk}}" type="text"
                  [(ngModel)]="accession.fName">
           <mat-error *ngIf="formGroup.controls['fName'].errors">
             {{getErrorMessage('fName')}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="text-field middle-name">
-          <input matInput formControlName="mName" placeholder="{{resources.mName}}" type="text"
+          <input matInput formControlName="mName" placeholder="{{resources.accessionFields.mName}}" type="text"
                  [(ngModel)]="accession.mName">
           <mat-error *ngIf="formGroup.controls['mName'].errors">
             {{getErrorMessage('mName')}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="text-field last-name">
-          <input matInput formControlName="lName" placeholder="{{resources.lName}}{{resources.asterisk}}" type="text"
+          <input matInput formControlName="lName" placeholder="{{resources.accessionFields.lName}}{{resources.formLabels.asterisk}}" type="text"
                  [(ngModel)]="accession.lName">
           <mat-error *ngIf="formGroup.controls['lName'].errors">
             {{getErrorMessage('lName')}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="date-field date-of-birth">
-          <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="{{resources.dob}}{{resources.asterisk}}"
+          <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="{{resources.accessionFields.dob}}{{resources.formLabels.asterisk}}"
                  [(ngModel)]="accession.dob">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <mat-icon matDatepickerToggleIcon svgIcon="date_picker"></mat-icon>
@@ -85,10 +85,10 @@
       </div>
       <div class="field-set">
         <div class="field-set-caption">
-          {{resources.address}}
+          {{resources.formLabels.address}}
         </div>
         <mat-form-field class="autocomplete-field state">
-          <input type="text" formControlName="state" placeholder="{{resources.state}}{{resources.asterisk}}"
+          <input type="text" formControlName="state" placeholder="{{resources.accessionFields.state}}{{resources.formLabels.asterisk}}"
                  matInput [matAutocomplete]="auto" [(ngModel)]="accession.state" (focusout)="onStateFocusOut($event)">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of statesFilteredOptions | async" [value]="option">
@@ -100,7 +100,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="autocomplete-field city">
-          <input type="text" formControlName="city" placeholder="{{resources.city}}{{resources.asterisk}}"
+          <input type="text" formControlName="city" placeholder="{{resources.accessionFields.city}}{{resources.formLabels.asterisk}}"
                  matInput [matAutocomplete]="auto" [(ngModel)]="accession.city">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of citiesFilteredOptions | async" [value]="option">
@@ -112,14 +112,14 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="text-field street-adderess">
-          <input matInput formControlName="streetAdd" placeholder="{{resources.streetAdd}}{{resources.asterisk}}" type="text"
-                 [(ngModel)]="accession.streetAdd">
-          <mat-error *ngIf="formGroup.controls['streetAdd'].errors">
-            {{getErrorMessage('streetAdd')}}
+          <input matInput formControlName="address" placeholder="{{resources.accessionFields.address}}{{resources.formLabels.asterisk}}" type="text"
+                 [(ngModel)]="accession.address">
+          <mat-error *ngIf="formGroup.controls['address'].errors">
+            {{getErrorMessage('address')}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="text-field zip-code">
-          <input matInput formControlName="zip" placeholder="{{resources.zip}}{{resources.asterisk}}" type="text"
+          <input matInput formControlName="zip" placeholder="{{resources.accessionFields.zip}}{{resources.formLabels.asterisk}}" type="text"
                  [(ngModel)]="accession.zip">
           <mat-error *ngIf="formGroup.controls['zip'].errors">
             {{getErrorMessage('zip')}}
@@ -127,9 +127,9 @@
         </mat-form-field>
       </div>
       <div class="field-set">
-        <div class="field-set-caption">{{resources.physiciansInfo}}</div>
+        <div class="field-set-caption">{{resources.formLabels.physiciansInfo}}</div>
         <mat-form-field class="autocomplete-field referring-physician">
-          <input type="text" formControlName="rPhysician" placeholder="{{resources.rPhysician}}{{resources.asterisk}}"
+          <input type="text" formControlName="rPhysician" placeholder="{{resources.accessionFields.rPhysician}}{{resources.formLabels.asterisk}}"
                  matInput [matAutocomplete]="auto" [(ngModel)]="accession.rPhysician">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of referringPhysiciansFilteredOptions | async" [value]="option">
@@ -141,7 +141,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="autocomplete-field treating-physician">
-          <input type="text" formControlName="tPhysician" placeholder="{{resources.tPhysician}}{{resources.asterisk}}"
+          <input type="text" formControlName="tPhysician" placeholder="{{resources.accessionFields.tPhysician}}{{resources.formLabels.asterisk}}"
                  matInput [matAutocomplete]="auto" [(ngModel)]="accession.tPhysician">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of treatingPhysiciansFilteredOptions | async" [value]="option">
@@ -153,27 +153,29 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="text-field npi">
-          <input matInput formControlName="npi" placeholder="{{resources.npi}}*" type="text"
+          <input matInput formControlName="npi" placeholder="{{resources.accessionFields.npi}}{{resources.formLabels.asterisk}}" type="text"
                  [(ngModel)]="accession.npi">
           <mat-error *ngIf="formGroup.controls['npi'].errors">
             {{getErrorMessage('npi')}}
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="foot-note">{{resources.asterisk}} {{resources.requiredFields}}</div>
+      <div class="foot-note">{{resources.formLabels.asterisk}} {{resources.formLabels.requiredFields}}</div>
       <div class="field-set button-pane">
-        <button type="button" button mat-raised-button class="nils-button print-label" (click)="onPrintLabelClick()">
+        <button type="button" [disabled]="!accession.accessionNumber" button mat-raised-button class="nils-button print-label" (click)="onPrintLabelClick()">
           <mat-icon class="button-img">print</mat-icon>
-          {{resources.printLabel}}
+          {{resources.buttons.printLabel}}
         </button>
-        <button type="button" [disabled]="!formGroup.valid" button mat-raised-button class="nils-button save" (click)="onSaveClick()">
+        <!--[disabled]="!formGroup.valid"-->
+        <button type="button" button mat-raised-button class="nils-button save" (click)="onSaveClick()">
           <mat-icon class="button-img" svgIcon="save"></mat-icon>
-          {{resources.save}}
+          {{resources.buttons.save}}
         </button>
         <div class="save-and-new-accession drop-down-button">
-          <button type="button" [disabled]="!formGroup.valid" button mat-raised-button class="nils-button save-and-new" (click)="hiddenselect.toggle()">
+          <!--[disabled]="!formGroup.valid"-->
+          <button type="button" button mat-raised-button class="nils-button save-and-new" (click)="hiddenselect.toggle()">
             <mat-icon class="button-img">print</mat-icon>
-            {{resources.saveAndNew}}
+            {{resources.buttons.saveAndNew}}
           </button>
           <mat-select class="hidden-select" #hiddenselect (selectionChange)="onNextTestSelected($event)">
             <mat-option class="nils-button" *ngFor="let testName of tests" [value]="testName">
@@ -184,8 +186,8 @@
       </div>
     </form>
   </div>
-  <ng-container *ngIf="accession.accessionNumber">
-    <app-footer-alert [level]="'ok'" [message]="alert" [autoClose]="10" (onClose)="onAlertClosed()"></app-footer-alert>
+  <ng-container *ngIf="successMessage">
+    <app-footer-alert [level]="'ok'" [message]="successMessage" [autoClose]="10" (onClose)="onAlertClosed()"></app-footer-alert>
   </ng-container>
   <div *ngIf="showUploadedImages" class="overlay">
     <div class="picture-management-form">

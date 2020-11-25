@@ -1,0 +1,90 @@
+.requisition-form.content-container .title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #3fcce2;
+}
+
+.requisition-form .cancel-button {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  background: #08CFA7;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.requisition-form .mat-stepper-horizontal {
+  min-height: calc(100% - 120px);
+}
+
+.requisition-form ::ng-deep .mat-horizontal-content-container {
+  height: calc(100% - 24px);
+}
+
+.step-content {
+  height: 100%;
+  min-height: 500px;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.step-center {
+  width: calc(50% - 60px);
+  margin: 30px 2px;
+  padding: 10px 30px;
+  border: 2px solid #3fcce2;
+  border-radius: 10px;
+}
+
+.form-title {
+  border-bottom: 2px solid #3fcce2;
+  background: rgba(63,204,226,0.25);
+  color: #3fcce2;
+  margin: -10px -30px 0 -30px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+  .form-title .step-number {
+    background: #3fcce2;
+    color: #fff;
+    display: inline-block;
+    width: 50px;
+    min-height: 42px;
+    border-radius: 6px 50% 50% 0;
+    text-align: center;
+    margin-right: 20px;
+  }
+
+.step-left, .step-right {
+  width: 25%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.field-set,
+.field-set .field {
+  display: flex;
+  flex-direction: row;
+  width: -webkit-fill-available;
+}
+
+.field-set .label {
+  color: #000;
+  font-weight: 500;
+  margin-right: 10px;
+  line-height: 50px;
+  display: block;
+  min-width: max-content;
+}
+
+.field-set .mat-form-field {
+  width: -webkit-fill-available;
+}
