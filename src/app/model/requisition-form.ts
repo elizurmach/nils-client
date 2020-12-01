@@ -27,7 +27,7 @@ export interface HealthcareProviderInfo {
   reqDate?: Date,
   oPhysician?: string,
   npi?: string,
-  authSigniture?: any,
+  authSigniture?: boolean,
   authDate?: Date
 }
 

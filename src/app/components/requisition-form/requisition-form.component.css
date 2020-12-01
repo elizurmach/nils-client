@@ -24,24 +24,6 @@
   height: calc(100% - 24px);
 }
 
-.step-content {
-  height: 100%;
-  min-height: 500px;
-}
-
-.step-content {
-  display: flex;
-  flex-direction: row;
-}
-
-.step-center {
-  width: calc(50% - 60px);
-  margin: 30px 2px;
-  padding: 10px 30px;
-  border: 2px solid #3fcce2;
-  border-radius: 10px;
-}
-
 .form-title {
   border-bottom: 2px solid #3fcce2;
   background: rgba(63,204,226,0.25);
@@ -63,12 +45,6 @@
     margin-right: 20px;
   }
 
-.step-left, .step-right {
-  width: 25%;
-  text-align: center;
-  margin: 30px 0;
-}
-
 .field-set,
 .field-set .field {
   display: flex;
@@ -76,15 +52,26 @@
   width: -webkit-fill-available;
 }
 
-.field-set .label {
-  color: #000;
-  font-weight: 500;
-  margin-right: 10px;
-  line-height: 50px;
-  display: block;
-  min-width: max-content;
+  .field-set .label {
+    color: #000;
+    font-weight: 500;
+    margin-right: 10px;
+    line-height: 50px;
+    display: block;
+    min-width: max-content;
+  }
+
+  .field-set .mat-form-field {
+    width: -webkit-fill-available;
+  }
+
+.buttons .nils-button {
+  margin: 1em;
 }
 
-.field-set .mat-form-field {
-  width: -webkit-fill-available;
+.buttons .bottom {
+  position: absolute;
+  top: 500px;
+  left: 0;
+  right: 0;
 }

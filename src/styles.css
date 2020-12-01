@@ -35,6 +35,11 @@ button {
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
 }
 
+  .nils-button.white {
+    background: inherit;
+    color: inherit;
+  }
+
   .nils-button.disabled {
     opacity: 0.5;
   }
@@ -231,6 +236,11 @@ button {
   color: #3fcce2;
 }
 
+.mat-horizontal-stepper-content:first-of-type .step-prev,
+.mat-horizontal-stepper-content:last-of-type .step-next {
+  display: none;
+}
+
 .requisition-form .mat-horizontal-content-container {
   display: inline;
 }
@@ -294,11 +304,11 @@ button {
     background-color: #000;
     transform: skew(0deg, -60deg);
   }
-  
 
-
-
-.radio-field .mat-form-field .mat-form-field-underline {
+.date-field .mat-form-field .mat-form-field-underline,
+.radio-field .mat-form-field .mat-form-field-underline,
+.nx-file-upload .mat-form-field-underline,
+.custom-number-field .mat-form-field .mat-form-field-underline {
   display: none;
 }
 
@@ -335,10 +345,6 @@ button {
   right: 0;
   background: inherit;
   color: inherit;
-}
-
-.nx-file-upload .mat-form-field-underline {
-  display: none;
 }
 
 .dynamic-form .field-set:first-child .field-set-caption {

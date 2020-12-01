@@ -12,54 +12,46 @@
   </div>
   <mat-horizontal-stepper *ngIf="requisitionForm" labelPosition="bottom" #stepper>
     <mat-step [stepControl]="patientInfoFormGroup">
-      <div class="step-content">
-        <div class="step-left"></div>
-        <div class="step-center patient-information">
-          <app-patient-information [formGroup]="patientInfoFormGroup" [data]="requisitionForm.pInfo" [stepNumber]="1"></app-patient-information>
-        </div>
-        <div class="step-right">
-          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
-        </div>
-      </div>
+      <app-nx-step-content>
+        <app-patient-information main [formGroup]="patientInfoFormGroup" [data]="requisitionForm.pInfo" [stepNumber]="1"></app-patient-information>
+        <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
+      </app-nx-step-content>
     </mat-step>
     <mat-step class="step" [stepControl]="healthcareProviderFormGroup">
-      <div class="step-content">
-        <div class="step-left">
-          <button class="nils-button" mat-button matStepperPrevious>{{resources.back}}</button>
-        </div>
-        <div class="step-center healthcare-provider-information">
-          <app-healthcare-provider-information [formGroup]="healthcareProviderFormGroup" [data]="requisitionForm.hcpInfo" [stepNumber]="2"></app-healthcare-provider-information>
-        </div>
-        <div class="step-right">
-          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
-        </div>
-      </div>
+      <app-nx-step-content>
+        <app-healthcare-provider-information main [formGroup]="healthcareProviderFormGroup" [data]="requisitionForm.hcpInfo" [stepNumber]="2"></app-healthcare-provider-information>
+        <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
+      </app-nx-step-content>
     </mat-step>
     <mat-step class="step" [stepControl]="specimenInfoFormGroup">
-      <div class="step-content">
-        <div class="step-left">
-          <button class="nils-button" mat-button matStepperPrevious>{{resources.back}}</button>
-        </div>
-        <div class="step-center specimen-information">
-          <app-specimen-information [formGroup]="specimenInfoFormGroup" [data]="requisitionForm.specInfo" [stepNumber]="3"></app-specimen-information>
-        </div>
-        <div class="step-right">
-          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
-        </div>
-      </div>
+      <app-nx-step-content>
+        <app-specimen-information main [formGroup]="specimenInfoFormGroup" [data]="requisitionForm.specInfo" [stepNumber]="3"></app-specimen-information>
+        <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
+      </app-nx-step-content>
     </mat-step>
     <mat-step class="step" [stepControl]="billingInfoFormGroup">
-      <div class="step-content">
-        <div class="step-left">
-          <button class="nils-button" mat-button matStepperPrevious>{{resources.back}}</button>
-        </div>
-        <div class="step-center specimen-information">
-          <app-billing-information [formGroup]="billingInfoFormGroup" [data]="requisitionForm.billInfo" [stepNumber]="4"></app-billing-information>
-        </div>
-        <div class="step-right">
-          <button class="nils-button" mat-button matStepperNext>{{resources.next}}</button>
-        </div>
-      </div>
+      <app-nx-step-content>
+        <app-billing-information main [formGroup]="billingInfoFormGroup" [data]="requisitionForm.billInfo" [stepNumber]="4"></app-billing-information>
+        <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
+      </app-nx-step-content>
+    </mat-step>
+    <mat-step class="step">
+      <app-nx-step-content>
+        <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
+      </app-nx-step-content>
     </mat-step>
   </mat-horizontal-stepper>
 </div>
+<ng-template #rightButtons>
+  <div class="buttons">
+    <button class="nils-button save" mat-button (click)="saveClick()">{{resources.save}}</button>
+    <button class="nils-button problem-log" mat-button (click)="problemLogClick()">{{resources.problemLog}}</button>
+    <button class="nils-button white req-form" mat-button (click)="reqFormClick()">
+      {{resources.managerequisitionForms}}
+      <mat-icon class="button-img" svgIcon="upload_file"></mat-icon>
+    </button>
+    <div class="bottom">
+      <button class="nils-button compleate" mat-button (click)="compleateClick()">{{resources.completeReqForm}}</button>
+    </div>
+  </div>
+</ng-template>

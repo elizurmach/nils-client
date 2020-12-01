@@ -1,0 +1,19 @@
+.nx-separate-digits-input {
+  display: flex;
+  flex-direction: row;
+}
+
+  .nx-separate-digits-input .hint {
+    position: absolute;
+    top: -10px;
+    font-size: 10px;
+  }
+
+  .nx-separate-digits-input .digit input {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.2em;
+    border: 1px solid #000;
+    border-radius: 0.3em;
+    text-align: center;
+  }

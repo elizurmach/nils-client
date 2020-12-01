@@ -40,7 +40,8 @@
       <div class="field date-field collection-date">
         <span class="label">{{resources.fields.collectionDate}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
-          <input matInput formControlName="collectionDate" type="text" [(ngModel)]="data.collectionDate">
+          <input matInput formControlName="collectionDate" type="text" [(ngModel)]="data.collectionDate" style="display:none" #coldate>
+          <app-nx-custom-date-input (change)="coldate.value = $event"></app-nx-custom-date-input>
           <mat-error *ngIf="formGroup.controls['collectionDate'].errors">
             {{getErrorMessage('collectionDate')}}
           </mat-error>
@@ -62,7 +63,8 @@
       <div class="field date-field retrieved-date">
         <span class="label">{{resources.fields.retrievedDate}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
-          <input matInput formControlName="retrievedDate" type="text" [(ngModel)]="data.retrievedDate">
+          <input matInput formControlName="retrievedDate" type="text" [(ngModel)]="data.retrievedDate" style="display:none" #retdate>
+          <app-nx-custom-date-input (change)="retdate.value = $event"></app-nx-custom-date-input>
           <mat-error *ngIf="formGroup.controls['retrievedDate'].errors">
             {{getErrorMessage('retrievedDate')}}
           </mat-error>

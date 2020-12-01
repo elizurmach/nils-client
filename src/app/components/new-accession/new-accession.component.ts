@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { newAccessionResources } from 'src/assets/resources/new-accession-resources';
 import { DataService } from '../../services/data.service';
 import { EmphesizeFirstCharecter } from '../../pipes/emphesize-first-charecter.pipe';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { NewAccession } from '../../model/accession';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -44,8 +44,8 @@ export class NewAccessionComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.accession = {};
-    this.header = this.resources.createNewAccessionHeader;
-    this.title = this.resources.newRequisitionForm;
+    this.header = this.resources.header;
+    this.title = this.resources.title;
     this.uploadedImages = [];
     this.formGroup = getNewAccessionFormGroup(this.formBuilder);
     this.setupStatesAutocompleate();
@@ -102,7 +102,7 @@ export class NewAccessionComponent implements OnInit, OnChanges {
 
   initializeComponent() {
     if (!this.accession.tOrdered) {
-      this.title = this.resources.newRequisitionForm;
+      this.title = this.resources.title;
     }
     else {
       this.title = this.testPipe.transform(this.accession.tOrdered);

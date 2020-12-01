@@ -101,7 +101,8 @@
       <div class="field date-field requisition-date">
         <span class="label">{{resources.fields.reqDate}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
-          <input matInput formControlName="reqDate" type="text" [(ngModel)]="data.reqDate">
+          <input matInput formControlName="reqDate" type="text" [(ngModel)]="data.reqDate" style="display:none" #reqdate>
+          <app-nx-custom-date-input (change)="reqdate.value = $event"></app-nx-custom-date-input>
           <mat-error *ngIf="formGroup.controls['reqDate'].errors">
             {{getErrorMessage('reqDate')}}
           </mat-error>
@@ -120,10 +121,11 @@
       </div>
     </div>
     <div class="field-set">
-      <div class="field text-field npi">
+      <div class="field custom-number-field npi">
         <span class="label">{{resources.fields.npi}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
-          <input matInput formControlName="npi" type="text" [(ngModel)]="data.npi">
+          <input matInput formControlName="npi" type="text" [(ngModel)]="data.npi" style="display:none" #npi>
+          <app-nx-separate-digit-input length="9" (change)="npi.value = $event"></app-nx-separate-digit-input>
           <mat-error *ngIf="formGroup.controls['npi'].errors">
             {{getErrorMessage('npi')}}
           </mat-error>
@@ -132,20 +134,18 @@
     </div>
     <div class="field-set">
       <div class="field text-field authorized-signiture">
-        <span class="label">{{resources.fields.authSigniture}}{{resources.formLabels.asterisk}}</span>
-        <mat-form-field>
-          <input matInput formControlName="authSigniture" type="text" [(ngModel)]="data.authSigniture">
-          <mat-error *ngIf="formGroup.controls['authSigniture'].errors">
-            {{getErrorMessage('authSigniture')}}
-          </mat-error>
-        </mat-form-field>
+        <mat-checkbox formControlName="authSigniture" [(ngModel)]="data.authSigniture" class="label">
+          {{resources.fields.authSigniture}}
+        </mat-checkbox>
+        <mat-error *ngIf="formGroup.controls['authSigniture'].errors">
+          {{getErrorMessage('authSigniture')}}
+        </mat-error>
       </div>
-    </div>
-    <div class="field-set">
       <div class="field date-field authentication-date">
         <span class="label">{{resources.fields.authDate}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
-          <input matInput formControlName="authDate" type="text" [(ngModel)]="data.authDate">
+          <input matInput formControlName="authDate" type="text" [(ngModel)]="data.authDate" style="display:none" #sigdate>
+          <app-nx-custom-date-input (change)="sig.value = $event"></app-nx-custom-date-input>
           <mat-error *ngIf="formGroup.controls['authDate'].errors">
             {{getErrorMessage('authDate')}}
           </mat-error>

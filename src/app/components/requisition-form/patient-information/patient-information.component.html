@@ -77,7 +77,8 @@
       <div class="field date-field date-of-birth">
         <span class="label">{{resources.fields.dob}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
-          <input matInput formControlName="dob" type="text" [(ngModel)]="data.dob">
+          <input matInput formControlName="dob" type="text" [(ngModel)]="data.dob" style="display:none">
+          <app-nx-custom-date-input (change)="dobChange($event)"></app-nx-custom-date-input>
           <mat-error *ngIf="formGroup.controls['dob'].errors">
             {{getErrorMessage('dob')}}
           </mat-error>
@@ -130,7 +131,7 @@
       </div>
     </div>
     <div class="field-set">
-      <div class="field text-field is-repeat-patient">
+      <div class="field check-field is-repeat-patient">
         <mat-checkbox formControlName="isRepeatPatient" [(ngModel)]="data.isRepeatPatient" class="label">
           {{resources.fields.isRepeatPatient}}{{resources.formLabels.asterisk}}
         </mat-checkbox>

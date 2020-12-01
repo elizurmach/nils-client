@@ -5,12 +5,8 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\controls",
-    "\\src\\app\\components\\controls\\footer-alert",
-    "\\src\\app\\components\\pending-accessions-list",
-    "\\src\\app\\model",
-    "\\src\\app\\services",
-    "\\src\\environments"
+    "\\src\\app\\components\\controls\\nx-separate-digit-input"
   ],
-  "SelectedNode": "\\src\\app\\components\\pending-accessions-list\\pending-accessions-list.component.html",
+  "SelectedNode": "\\src\\app\\components\\controls\\nx-separate-digit-input\\nx-separate-digit-input.component.ts",
   "PreviewInSolutionExplorer": false
 }

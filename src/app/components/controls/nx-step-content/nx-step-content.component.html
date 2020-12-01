@@ -1,0 +1,19 @@
+<div class="step-content">
+  <div class="step-left">
+    <button class="nils-button white step-prev" mat-button matStepperPrevious>
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      {{resources.back}}
+    </button>
+    <ng-content select="[left]"></ng-content>
+  </div>
+  <div class="step-center">
+    <ng-content select="[main]"></ng-content>
+  </div>
+  <div class="step-right">
+    <button class="nils-button white step-next" mat-button matStepperNext>
+      {{resources.next}}
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <ng-content select="[right]"></ng-content>
+  </div>
+</div>

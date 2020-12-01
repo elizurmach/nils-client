@@ -37,4 +37,9 @@ export class HealthcareProviderInformationComponent implements OnInit {
     }
     return this.resources.messages.genericFieldError;
   }
+
+  npiChange(value:number) {
+    this.data.npi = value.toString();
+    console.log(event);
+  }
 }

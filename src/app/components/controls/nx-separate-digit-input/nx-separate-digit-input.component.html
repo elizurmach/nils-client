@@ -1,0 +1,6 @@
+<div class="nx-separate-digits-input" (focusout)="focusOut()">
+  <span class="hint" *ngIf="hint">{{hint}}</span>
+  <span class="digit" *ngFor="let i of arr;">
+    <input type="text" maxlength="1" (keyup)="keyUp($event)" />
+  </span>
+</div>

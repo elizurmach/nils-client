@@ -1,0 +1,10 @@
+.nx-custom-date-input {
+  display: flex;
+  flex-direction: row;
+}
+
+  .nx-custom-date-input .seperator {
+    font-size: 1.5em;
+    color: #000;
+    margin: 0 0.2em;
+  }

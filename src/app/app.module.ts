@@ -26,7 +26,10 @@ import { PatientInformationComponent } from './components/requisition-form/patie
 import { HealthcareProviderInformationComponent } from './components/requisition-form/healthcare-provider-information/healthcare-provider-information.component';
 import { SpecimenInformationComponent } from './components/requisition-form/specimen-information/specimen-information.component';
 import { BillingInformationComponent } from './components/requisition-form/billing-information/billing-information.component';
-import { NxInputDialogComponent } from './components/controls/nx-input-dilog/nx-input-dialog.component'
+import { NxInputDialogComponent } from './components/controls/nx-input-dilog/nx-input-dialog.component';
+import { NxSeparateDigitInputComponent } from './components/controls/nx-separate-digit-input/nx-separate-digit-input.component';
+import { NxCustomDateInputComponent } from './components/controls/nx-custom-date-input/nx-custom-date-input.component';
+import { NxStepContentComponent } from './components/controls/nx-step-content/nx-step-content.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { NxInputDialogComponent } from './components/controls/nx-input-dilog/nx-
     HealthcareProviderInformationComponent,
     SpecimenInformationComponent,
     BillingInformationComponent,
-    NxInputDialogComponent
+    NxInputDialogComponent,
+    NxSeparateDigitInputComponent,
+    NxCustomDateInputComponent,
+    NxStepContentComponent
   ],
   imports: [
     BrowserModule,

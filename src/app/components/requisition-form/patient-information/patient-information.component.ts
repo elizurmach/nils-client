@@ -36,6 +36,10 @@ export class PatientInformationComponent implements OnInit {
     }
   }
 
+  dobChange(value: Date) {
+    this.data.dob = value;
+  }
+
   getErrorMessage(fieldName: string) {
     if (!this.formGroup.controls[fieldName].touched) {
       return null;

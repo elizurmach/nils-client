@@ -1,6 +1,6 @@
 export const newAccessionResources = {
-  createNewAccessionHeader: 'Create New Accession',
-  newRequisitionForm: 'New Requisition Form',
+  header: 'Create New Accession',
+  title: 'New Requisition Form',
   messages: {
     requiredFieldError: ' field is mandatory',
     incorrectPatternFieldError: 'Invalid format for',

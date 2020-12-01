@@ -1,0 +1,11 @@
+<div class="nx-custom-date-input">
+  <app-nx-separate-digit-input length="2" hint="{{resources.month}}" (change)="monthChange($event)"></app-nx-separate-digit-input>
+  <span class="seperator">
+    {{resources.dateSeperator}}
+  </span>
+  <app-nx-separate-digit-input length="2" hint="{{resources.day}}" (change)="dayChange($event)"></app-nx-separate-digit-input>
+  <span class="seperator">
+    {{resources.dateSeperator}}
+  </span>
+  <app-nx-separate-digit-input length="4" hint="{{resources.year}}" (change)="yearChange($event)"></app-nx-separate-digit-input>
+</div>
