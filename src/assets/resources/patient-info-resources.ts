@@ -1,6 +1,4 @@
 export const patientInfoResources = {
-  title: 'Patient Information',
-  stepName:'Patient',
   messages: {
     genericFieldError: 'Field is  invalid'
   },

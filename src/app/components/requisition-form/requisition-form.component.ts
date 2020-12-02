@@ -31,6 +31,7 @@ export class RequisitionFormComponent implements OnInit {
   public healthcareProviderFormGroup: FormGroup;
   public specimenInfoFormGroup: FormGroup;
   public billingInfoFormGroup: FormGroup;
+  public comments: string;
 
   constructor(private route: ActivatedRoute, private service: AccessionService,
     private formBuilder: FormBuilder, private testPipe: EmphesizeFirstCharecter) { }

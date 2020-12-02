@@ -1,7 +1,5 @@
 <div class="healthcare-provider-information">
-  <div class="form-title"><span class="step-number">{{stepNumber}}</span>{{resources.title}}</div>
   <form [formGroup]="formGroup">
-    <ng-template matStepLabel>{{resources.stepName}}</ng-template>
     <div class="field-set">
       <div class="field text-field institution-name">
         <span class="label">{{resources.fields.instName}}{{resources.formLabels.asterisk}}</span>
@@ -145,7 +143,7 @@
         <span class="label">{{resources.fields.authDate}}{{resources.formLabels.asterisk}}</span>
         <mat-form-field>
           <input matInput formControlName="authDate" type="text" [(ngModel)]="data.authDate" style="display:none" #sigdate>
-          <app-nx-custom-date-input (change)="sig.value = $event"></app-nx-custom-date-input>
+          <app-nx-custom-date-input (change)="sigdate.value = $event"></app-nx-custom-date-input>
           <mat-error *ngIf="formGroup.controls['authDate'].errors">
             {{getErrorMessage('authDate')}}
           </mat-error>

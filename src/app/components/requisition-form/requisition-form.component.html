@@ -12,31 +12,47 @@
   </div>
   <mat-horizontal-stepper *ngIf="requisitionForm" labelPosition="bottom" #stepper>
     <mat-step [stepControl]="patientInfoFormGroup">
+      <ng-template matStepLabel>{{resources.stepNames.patientInformation}}</ng-template>
       <app-nx-step-content>
-        <app-patient-information main [formGroup]="patientInfoFormGroup" [data]="requisitionForm.pInfo" [stepNumber]="1"></app-patient-information>
+        <app-form-section main [stepNumber]="1" [title]="resources.titles.patientInformation">
+          <app-patient-information [formGroup]="patientInfoFormGroup" [data]="requisitionForm.pInfo"></app-patient-information>
+        </app-form-section>
         <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
       </app-nx-step-content>
     </mat-step>
     <mat-step class="step" [stepControl]="healthcareProviderFormGroup">
+      <ng-template matStepLabel>{{resources.stepNames.healthcareProviderInformation}}</ng-template>
       <app-nx-step-content>
-        <app-healthcare-provider-information main [formGroup]="healthcareProviderFormGroup" [data]="requisitionForm.hcpInfo" [stepNumber]="2"></app-healthcare-provider-information>
+        <app-form-section main [stepNumber]="2" [title]="resources.titles.healthcareProviderInformation">
+          <app-healthcare-provider-information [formGroup]="healthcareProviderFormGroup" [data]="requisitionForm.hcpInfo"></app-healthcare-provider-information>
+        </app-form-section>
         <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
       </app-nx-step-content>
     </mat-step>
     <mat-step class="step" [stepControl]="specimenInfoFormGroup">
+      <ng-template matStepLabel>{{resources.stepNames.specimenInformation}}</ng-template>
       <app-nx-step-content>
-        <app-specimen-information main [formGroup]="specimenInfoFormGroup" [data]="requisitionForm.specInfo" [stepNumber]="3"></app-specimen-information>
+        <app-form-section main [stepNumber]="3" [title]="resources.titles.specimenInformation">
+          <app-specimen-information [formGroup]="specimenInfoFormGroup" [data]="requisitionForm.specInfo"></app-specimen-information>
+        </app-form-section>
         <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
       </app-nx-step-content>
     </mat-step>
     <mat-step class="step" [stepControl]="billingInfoFormGroup">
+      <ng-template matStepLabel>{{resources.stepNames.billingInformation}}</ng-template>
       <app-nx-step-content>
-        <app-billing-information main [formGroup]="billingInfoFormGroup" [data]="requisitionForm.billInfo" [stepNumber]="4"></app-billing-information>
+        <app-form-section main [stepNumber]="4" [title]="resources.titles.billingInformation">
+          <app-billing-information [formGroup]="billingInfoFormGroup" [data]="requisitionForm.billInfo"></app-billing-information>
+        </app-form-section>
         <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
       </app-nx-step-content>
     </mat-step>
     <mat-step class="step">
+      <ng-template matStepLabel>{{resources.stepNames.comments}}</ng-template>
       <app-nx-step-content>
+        <app-form-section main [stepNumber]="5" [title]="resources.titles.comments">
+          <textarea class="requisition-form-comments" rows="10" [(ngModel)]="comments"></textarea>
+        </app-form-section>
         <ng-template right [ngTemplateOutlet]="rightButtons"></ng-template>
       </app-nx-step-content>
     </mat-step>

@@ -1,7 +1,5 @@
 <div class="billing-information">
-  <div class="form-title"><span class="step-number">{{stepNumber}}</span>{{resources.title}}</div>
   <form [formGroup]="formGroup">
-    <ng-template matStepLabel>{{resources.stepName}}</ng-template>
     <div class="field-set">
       <div class="field radio-field is-self-pay">
         <mat-checkbox [checked]="data.isSelfPay" (change)="billingModeChange($event,'Self-Pay')" class="label">

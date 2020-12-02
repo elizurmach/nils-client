@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, EventEmitter, Output, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ElementRef, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-nx-separate-digit-input',
   templateUrl: './nx-separate-digit-input.component.html',
   styleUrls: ['./nx-separate-digit-input.component.css']
 })
-export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit {
+
+export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Input() length: number;
   @Input() value?: number;
@@ -13,7 +14,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit {
 
   @Output() change = new EventEmitter<number>()
 
-  public arr: Array<any>;
+  public arr: Array<number>;
   private inputs: HTMLInputElement[];
 
   constructor(private element: ElementRef) { }
@@ -26,9 +27,25 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit {
     this.inputs = this.element.nativeElement.querySelectorAll('input');
     for (let i = 0; i < this.inputs.length; i++) {
       this.setInputFilter(this.inputs[i], this.inputFilter);
-      if (this.value || this.value === 0) {
-        this.setValue(i);
-      }
+    }
+    this.resetInputValues();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    let self = this
+    setTimeout(function () {
+      self.resetInputValues();
+    }, 10);
+  }
+
+  private resetInputValues() {
+    if (this.value || this.value === 0) {
+      let self = this
+      setTimeout(function () {
+        for (let i = 0; i < self.inputs.length; i++) {
+          self.setValue(i);
+        }
+      }, 10)
     }
   }
 
@@ -43,7 +60,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private updateValue():void {
+  private updateValue(): void {
     let temp = 0;
     let changed = false;
     for (let i = 0; i < this.inputs.length; i++) {
@@ -60,7 +77,8 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit {
 
   private setInputFilter(textbox: Element, inputFilter: (value: string) => boolean): void {
     ["input", "keyup", "select", "contextmenu", "drop"].forEach(function (event) {
-      textbox.addEventListener(event, function (this: (HTMLInputElement | HTMLTextAreaElement) & { oldValue: string; oldSelectionStart: number | null, oldSelectionEnd: number | null }) {
+      textbox.addEventListener(event, function (this: (HTMLInputElement | HTMLTextAreaElement) &
+      { oldValue: string; oldSelectionStart: number | null, oldSelectionEnd: number | null }) {
         if (inputFilter(this.value)) {
           this.oldValue = this.value;
           this.oldSelectionStart = this.selectionStart;
@@ -100,7 +118,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit {
     }, 10);
   }
 
-  private setValue(index: number):void {
-    this.inputs[index].setAttribute('value', (Math.floor(this.value / Math.pow(10, this.length - (index + 1)) % 10).toString()));
+  private setValue(index: number): void {
+    this.inputs[index]['value'] = (Math.floor(this.value / Math.pow(10, this.length - (index + 1)) % 10).toString());
   }
 }

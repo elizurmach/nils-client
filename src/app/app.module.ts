@@ -30,6 +30,7 @@ import { NxInputDialogComponent } from './components/controls/nx-input-dilog/nx-
 import { NxSeparateDigitInputComponent } from './components/controls/nx-separate-digit-input/nx-separate-digit-input.component';
 import { NxCustomDateInputComponent } from './components/controls/nx-custom-date-input/nx-custom-date-input.component';
 import { NxStepContentComponent } from './components/controls/nx-step-content/nx-step-content.component';
+import { FormSectionComponent } from './components/requisition-form/form-section/form-section.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NxStepContentComponent } from './components/controls/nx-step-content/nx
     NxInputDialogComponent,
     NxSeparateDigitInputComponent,
     NxCustomDateInputComponent,
-    NxStepContentComponent
+    NxStepContentComponent,
+    FormSectionComponent
   ],
   imports: [
     BrowserModule,

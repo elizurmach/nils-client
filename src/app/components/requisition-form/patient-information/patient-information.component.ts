@@ -14,7 +14,6 @@ export class PatientInformationComponent implements OnInit {
 
   @Input() formGroup: FormGroup;
   @Input() data: PatientInfo;
-  @Input() stepNumber: number;
   public resources = patientInfoResources;
   public genders: Array<string>;
 

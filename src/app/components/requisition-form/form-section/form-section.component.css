@@ -1,0 +1,20 @@
+.form-title {
+  border-bottom: 2px solid #3fcce2;
+  background: rgba(63,204,226,0.25);
+  color: #3fcce2;
+  margin: -10px -30px 0 -30px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+  .form-title .step-number {
+    background: #3fcce2;
+    color: #fff;
+    display: inline-block;
+    width: 50px;
+    min-height: 42px;
+    border-radius: 6px 50% 50% 0;
+    text-align: center;
+    margin-right: 20px;
+  }
