@@ -25,5 +25,4 @@ export class NxInputDialogComponent {
       this.nxConfirmDialog.close(false);
     });
   }
-
 }

@@ -27,6 +27,7 @@ import { HealthcareProviderInformationComponent } from './components/requisition
 import { SpecimenInformationComponent } from './components/requisition-form/specimen-information/specimen-information.component';
 import { BillingInformationComponent } from './components/requisition-form/billing-information/billing-information.component';
 import { NxInputDialogComponent } from './components/controls/nx-input-dilog/nx-input-dialog.component';
+import { NxConfirmDialogComponent } from './components/controls/nx-confirm-dialog/nx-confirm-dialog.component';
 import { NxSeparateDigitInputComponent } from './components/controls/nx-separate-digit-input/nx-separate-digit-input.component';
 import { NxCustomDateInputComponent } from './components/controls/nx-custom-date-input/nx-custom-date-input.component';
 import { NxStepContentComponent } from './components/controls/nx-step-content/nx-step-content.component';
@@ -53,6 +54,7 @@ import { FormSectionComponent } from './components/requisition-form/form-section
     SpecimenInformationComponent,
     BillingInformationComponent,
     NxInputDialogComponent,
+    NxConfirmDialogComponent,
     NxSeparateDigitInputComponent,
     NxCustomDateInputComponent,
     NxStepContentComponent,
@@ -88,7 +90,8 @@ import { FormSectionComponent } from './components/requisition-form/form-section
   providers: [EmphesizeFirstCharecter],
   bootstrap: [AppComponent],
   entryComponents: [
-    NxInputDialogComponent
+    NxInputDialogComponent,
+    NxConfirmDialogComponent
   ]
 })
 export class AppModule { }

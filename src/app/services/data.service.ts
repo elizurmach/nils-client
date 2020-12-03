@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { of, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 import { User } from '../model/user';
-import { Accession, PendingAccession } from '../model/accession';
-import { tap, map } from 'rxjs/operators';
-import { FilterParameters, FiltredResults } from '../model/filter-parameters';
 
 @Injectable({
   providedIn: 'root'

@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+
 .title {
     flex: auto;
     color: red;

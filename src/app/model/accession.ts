@@ -1,9 +1,12 @@
-export interface Accession {
+export interface AccessionBase {
   id?: number,
-  lastModified?: Date,
-  creationDate?: Date,
   accessionNumber?: string,
   tOrdered?: string,
+}
+
+export interface Accession extends AccessionBase {
+  lastModified?: Date,
+  creationDate?: Date,
   acctNumber?: string,
   phNumber?: string,
   fName?: string,

@@ -3,9 +3,9 @@
   <span class="seperator">
     {{resources.dateSeperator}}
   </span>
-  <app-nx-separate-digit-input length="2" hint="{{resources.day}}" (change)="dayChange($event)" [value]="day"></app-nx-separate-digit-input>
+  <app-nx-separate-digit-input length="2" hint="{{resources.day}}" (change)="dayChange($event)" [(value)]="day"></app-nx-separate-digit-input>
   <span class="seperator">
     {{resources.dateSeperator}}
   </span>
-  <app-nx-separate-digit-input length="4" hint="{{resources.year}}" (change)="yearChange($event)" [value]="year"></app-nx-separate-digit-input>
+  <app-nx-separate-digit-input length="4" hint="{{resources.year}}" (change)="yearChange($event)" [(value)]="year"></app-nx-separate-digit-input>
 </div>

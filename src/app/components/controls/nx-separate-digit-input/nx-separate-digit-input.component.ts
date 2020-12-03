@@ -12,7 +12,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit, OnC
   @Input() value?: number;
   @Input() hint?: string;
 
-  @Output() change = new EventEmitter<number>()
+  @Output() change = new EventEmitter<number>();
 
   public arr: Array<number>;
   private inputs: HTMLInputElement[];
@@ -32,7 +32,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit, OnC
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    let self = this
+    let self = this;
     setTimeout(function () {
       self.resetInputValues();
     }, 10);
@@ -40,7 +40,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit, OnC
 
   private resetInputValues() {
     if (this.value || this.value === 0) {
-      let self = this
+      let self = this;
       setTimeout(function () {
         for (let i = 0; i < self.inputs.length; i++) {
           self.setValue(i);
@@ -111,9 +111,7 @@ export class NxSeparateDigitInputComponent implements OnInit, AfterViewInit, OnC
         }
       }
       if (document.activeElement.tagName != 'body' && !stillInFocus && (self.value || self.value === 0)) {
-        for (let i = 0; i < self.inputs.length; i++) {
-          self.setValue(i);
-        }
+        self.resetInputValues();
       }
     }, 10);
   }

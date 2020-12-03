@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>
+    <span class="title">{{data.title}}</span>
+    <button mat-icon-button class="close-button" (click)="close()">
+        <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+</h1>
+<div mat-dialog-content class="content">
+    <p>{{data.body | json}}</p>
+</div>
+<div class="button-pane">
+    <button mat-button class="nils-button cancel" (click)="cancelSelect()">
+        <img *ngIf="data.cancelIcon" class="button-img" src="{{data.cancelIcon}}" />
+        {{data.cancelText}}
+    </button>
+    <button mat-button class="nils-button confirm" (click)="confirmSelect()">
+        <img *ngIf="data.confirmIcon" class="button-img" src="{{data.confirmIcon}}" />
+        {{data.confirmText}}
+    </button>
+</div>

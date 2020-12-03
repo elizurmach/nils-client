@@ -1,0 +1,28 @@
+.mat-dialog-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.title {
+  flex: auto;
+  color: red;
+}
+
+.content,
+.button-pane {
+    font-size: 16px;
+}
+
+.nils-button.cancel {
+  float: left;
+}
+
+.nils-button.cancel,
+.nils-button.confirm {
+  min-width: 40%;
+}
+
+.nils-button.confirm {
+  float: right;
+}

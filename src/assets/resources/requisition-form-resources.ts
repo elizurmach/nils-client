@@ -18,5 +18,11 @@ export const requisitionFormResources = {
     specimenInformation: 'Specimen',
     billingInformation: 'Billing',
     comments: 'Comments'
+  },
+  dialog: {
+    title: 'Are you sure?',
+    body: 'Unsaved changes will be lost...',
+    confirmText: 'Yes, leave',
+    cancelText: 'Oops, no'
   }
 }
